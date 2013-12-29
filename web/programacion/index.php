@@ -1,4 +1,4 @@
-<?
+<?php
 	$PaginaPrefijo='../';
 
 	$pagina = $PHP_SELF;

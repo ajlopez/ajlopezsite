@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Cache_inc == 1)
 	return;
 define ('__Cache_inc', 1);

@@ -1,4 +1,4 @@
-<?
+<?php
 	if (__Sesion_inc == 1)
 		return;
 	define ('__Sesion_inc', 1);

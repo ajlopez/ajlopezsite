@@ -1,4 +1,4 @@
-<?
+<?php
 	include_once($PaginaPrefijo.'Usuarios.inc.php');
 	include_once($PaginaPrefijo.'Paginas.inc.php');
 	include_once($PaginaPrefijo.'Cache.inc.php');
@@ -8,7 +8,7 @@
 <html>
 <head>
 
-<title><? echo $PaginaTitulo; ?></title>
+<title><?php echo $PaginaTitulo; ?></title>
 
 <META name="title" content="ajlopez El Sitio de Angel Java Lopez">
 <META name="description" content="ajlopez El Sitio de Angel Java Lopez">
@@ -28,8 +28,8 @@ _uacct = "UA-1448255-1";
 urchinTracker();
 </script>
 
-<link rel="stylesheet" href="<? echo $PaginaPrefijo; ?>css/Estilo.css">
-<?
+<link rel="stylesheet" href="<?php echo $PaginaPrefijo; ?>css/Estilo.css">
+<?php
 	if ($ArchivoJs)
 		echo "<script language='javascript' src='js/$ArchivoJs'></script>\n";
 ?>
@@ -59,8 +59,8 @@ Meebo('makeEverythingSharable');
 <tr height=60>
 <td class="TituloSitio">
 <!-- &nbsp;ajlopez.net -->
-<a href="<?= $PaginaPrefijo ?><? echo PaginaPrincipal(); ?>" target="_top">
-<img src="<? echo $PaginaPrefijo; ?>images/ajlopez2.gif" border=0>
+<a href="<?= $PaginaPrefijo ?><?php echo PaginaPrincipal(); ?>" target="_top">
+<img src="<?php echo $PaginaPrefijo; ?>images/ajlopez2.gif" border=0>
 </a>
 </td>
 <td valign="bottom" align="right">
@@ -76,8 +76,8 @@ Meebo('makeEverythingSharable');
 
 <table width=100% cellspacing=0 cellpadding=0 border=0>
 <tr height=23 bgcolor=white>
-<td align="left" valign="top" background="<? echo $PaginaPrefijo; ?>images/2bg.gif">
-<img src="<? echo $PaginaPrefijo; ?>images/2.gif" height=23></td></tr>
+<td align="left" valign="top" background="<?php echo $PaginaPrefijo; ?>images/2bg.gif">
+<img src="<?php echo $PaginaPrefijo; ?>images/2.gif" height=23></td></tr>
 <tr  bgcolor=black>
 <td bgcolor="#000000" align=right>
 <font class=headerU><b>El sitio de Angel "Java" Lopez</b>&nbsp;&nbsp;&nbsp;&nbsp;</font>
@@ -99,21 +99,21 @@ Meebo('makeEverythingSharable');
 <TR height=24>
 <TD vAlign=center noWrap align=left width=* bgColor=#dedede>
 &nbsp;&nbsp;
-<?
+<?php
 function GeneraOpcionTope($texto,$enlace)
 {
 	global $PaginaPrefijo;
 ?>
-<A class=navlink target='_top' href="<? echo $PaginaPrefijo.$enlace ?>"><? echo $texto ?></A>&nbsp;&nbsp;|&nbsp&nbsp;
-<?
+<A class=navlink target='_top' href="<?php echo $PaginaPrefijo.$enlace ?>"><?php echo $texto ?></A>&nbsp;&nbsp;|&nbsp&nbsp;
+<?php
 }
 
 function GeneraOpcionTopeExterno($texto,$enlace)
 {
 	global $PaginaPrefijo;
 ?>
-<A class=navlink target='_blank' href="<? echo $enlace ?>"><? echo $texto ?></A>&nbsp;&nbsp;|&nbsp&nbsp;
-<?
+<A class=navlink target='_blank' href="<?php echo $enlace ?>"><?php echo $texto ?></A>&nbsp;&nbsp;|&nbsp&nbsp;
+<?php
 }
 
 	GeneraOpcionTope("ajlopez",PaginaPrincipal());
@@ -151,7 +151,7 @@ function GeneraOpcionTopeExterno($texto,$enlace)
 
 <center>
 
-<?
+<?php
 function MenuInicio($titulo)
 {
 ?>
@@ -159,12 +159,12 @@ function MenuInicio($titulo)
 <table class="menu" cellspacing=1 cellpadding=2 width="95%">
 <tr>
 <td align=center class="menutitulo">
-<? echo $titulo; ?>
+<?php echo $titulo; ?>
 </td>
 </tr>
 </tr>
 <td valign="top" class="menuopcion">
-<?
+<?php
 }
 
 function MenuOpcion($texto,$enlace)
@@ -197,11 +197,11 @@ function MenuFinal()
 
 </p>
 
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 if ($PaginaMenu) {
 	include_once($PaginaMenu);
 }
@@ -308,11 +308,11 @@ else {
 
 <p>
 
-<?
+<?php
 	if (!$PaginaTituloInvisible) {
 ?>
-<h1 align="center"><? echo $PaginaTitulo ?></h1>
-<?
+<h1 align="center"><?php echo $PaginaTitulo ?></h1>
+<?php
 	}
 ?>
 

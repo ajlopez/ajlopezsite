@@ -1,4 +1,4 @@
-<?
+<?php
 
 if (__Random_inc == 1) return;
 define ('__Random_inc', 1);

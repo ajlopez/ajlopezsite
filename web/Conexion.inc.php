@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Conexion_inc == 1)
 	return;
 define ('__Conexion_inc', 1);

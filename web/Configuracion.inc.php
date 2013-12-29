@@ -1,4 +1,4 @@
-<?
+<?php
 
 if (__Configuracion_inc == 1) return;
 

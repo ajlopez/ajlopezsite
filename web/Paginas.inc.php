@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Paginas_inc == 1)
 	return;
 

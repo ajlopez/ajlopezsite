@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Usuarios_inc == 1)
 	return;
 define ('__Usuarios_inc', 1);

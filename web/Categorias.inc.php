@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Categorias_inc == 1)
 	return;
 define ('__Categorias_inc', 1);

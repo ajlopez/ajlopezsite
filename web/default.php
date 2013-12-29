@@ -1,4 +1,5 @@
-<?
+<?php
+    include('Settings.inc.php');
 	include_once('Usuarios.inc.php');
 	include_once('Paginas.inc.php');
 	include_once('Eventos.inc.php');
@@ -82,19 +83,19 @@ Desde el comienzo de este sitio, he ido publicando enlaces, artículos y recursos
 en la web de los temas de desarrollo de software.
 <br>
 <br>
-<a href="http://www.ajlopez.net/programacion">Programación</a>,
-<a href="http://www.ajlopez.net/java">Java</a>,
-<a href="http://www.ajlopez.net/puntonet">.NET</a>,
-<a href="http://www.ajlopez.net/xml">XML</a>,
-<a href="http://www.ajlopez.net/uml">UML</a>,
-<a href="http://www.ajlopez.net/vb">Visual Basic</a>,
-<a href="http://www.ajlopez.net/php">PHP</a>,
-<a href="http://www.ajlopez.net/webmasters">Desarrollo Web</a>,
-<a href="http://ajlopez.net/Tema.php?Id=71">Inteligencia Artificial</a>,
-<a href="http://ajlopez.net/Tema.php?Id=64">Computer Go</a>,
-<a href="http://ajlopez.net/Tema.php?Id=47">Patrones</a>,
-<a href="http://ajlopez.net/Tema.php?Id=14">Smalltalk</a>,
-<a href="http://ajlopez.net/Tema.php?Id=13">COBOL</a>,
+<a href="programacion">Programación</a>,
+<a href="java">Java</a>,
+<a href="puntonet">.NET</a>,
+<a href="xml">XML</a>,
+<a href="uml">UML</a>,
+<a href="vb">Visual Basic</a>,
+<a href="php">PHP</a>,
+<a href="webmasters">Desarrollo Web</a>,
+<a href="Tema.php?Id=71">Inteligencia Artificial</a>,
+<a href="Tema.php?Id=64">Computer Go</a>,
+<a href="Tema.php?Id=47">Patrones</a>,
+<a href="Tema.php?Id=14">Smalltalk</a>,
+<a href="Tema.php?Id=13">COBOL</a>,
 y más...
 <br>
 <br>
@@ -452,23 +453,23 @@ fundamentos de la ciencia.</p>
 
 </center>
 
-<?
+<?php
 	while ($reg=mysql_fetch_array($rsReferencias)) {
 ?>
 
 <p>
-<a class=item href='ReferenciaVe.php?Id=<? echo $reg['Id']; ?>'><? echo $reg['Titulo'] ?></a>
-<?
+<a class=item href='ReferenciaVe.php?Id=<?php echo $reg['Id']; ?>'><?php echo $reg['Titulo'] ?></a>
+<?php
 	if (EsAdministrador()) {
 ?>
-&nbsp;&nbsp;<a href='Referencia.php?Id=<? echo $reg['Id']; ?>'>Administra</a>
-<?
+&nbsp;&nbsp;<a href='Referencia.php?Id=<?php echo $reg['Id']; ?>'>Administra</a>
+<?php
 	}
 ?>
 <br>
-<? echo $reg['Detalle'] ?>
+<?php echo $reg['Detalle'] ?>
 </p>
-<?
+<?php
 	}
 ?>
 
@@ -480,7 +481,7 @@ fundamentos de la ciencia.</p>
 
 <table cellspacing=1 cellpadding=3 width=600 border=0 bgcolor=black>
 
-<?
+<?php
 function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 {
 	$pos = $x + $y;
@@ -539,7 +540,7 @@ function MuestraVacio($x,$y)
 </table>
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

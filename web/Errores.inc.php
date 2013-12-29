@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Errores_inc == 1)
 	return;
 define ('__Errores_inc', 1);
@@ -29,17 +29,17 @@ function ErrorMuestraAnt($mensaje,$enlace='javascript:history.go(-1);') {
 <h1 align=center><font color=red><? echo $mensaje; ?></font></h1>
 	<br>
 	<br>
-<?
+<?php
 	if ($enlace) {
 ?>
 <a href="<? echo $enlace; ?>">Continuar</a>
-<?
+<?php
 	}
 ?>
     </td>
   </tr>
 </table>
-<?
+<?php
 	include($PaginaPrefijo.'Final.inc.php');
 	exit();
 }

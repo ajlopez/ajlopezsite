@@ -1,4 +1,5 @@
-<?
+<?php
+    include($PaginaPrefijo.'Settings.inc.php');
 	include_once($PaginaPrefijo.'GetParameters.inc.php');
 	include_once($PaginaPrefijo.'Usuarios.inc.php');
 	include_once($PaginaPrefijo.'Paginas.inc.php');
@@ -84,14 +85,14 @@
 
 <center>
 
-<?
+<?php
 	if (EsAdministrador()) {
 		echo "<p><a href='" . $PaginaPrefijo . "Categoria.php?Id=$Id' target='_top'>Administra</a></p>";
 	}
 ?>
 <p>
-<a href="<? echo $PaginaPrefijo; ?>Temas.php" target='_top'>Temas</a>
-<?
+<a href="<?php echo $PaginaPrefijo; ?>Temas.php" target='_top'>Temas</a>
+<?php
 	if ($IdPadre) {
 		echo "&nbsp;->&nbsp;";
 		echo CategoriasEnlaces($IdPadre,$PaginaPrefijo.'Tema.php');
@@ -100,20 +101,20 @@
 </p>
 
 <p>
-<?
+<?php
 	if ($NArticulos) {
 ?>
-<a href="<? echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<? echo $Id; ?>&NItems=<? echo $NItems; ?>">Art&iacute;culos</a>
-<?
+<a href="<?php echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<?php echo $Id; ?>&NItems=<?php echo $NItems; ?>">Art&iacute;culos</a>
+<?php
 	}
 ?>
-<?
+<?php
 	if ($NItems) {
 		if ($NArticulos)
 			echo "&nbsp;&nbsp";
 ?>
-<a href="<? echo $PaginaPrefijo; ?>TemaEnlaces.php?Id=<? echo $Id; ?>&NArticulos=<? echo $NArticulos; ?>">Enlaces</a>
-<?
+<a href="<?php echo $PaginaPrefijo; ?>TemaEnlaces.php?Id=<?php echo $Id; ?>&NArticulos=<?php echo $NArticulos; ?>">Enlaces</a>
+<?php
 	}
 ?>
 </p>
@@ -133,7 +134,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 </center>
 
-<?
+<?php
 	if ($Detalle) {
 		echo "<p class=categoriadetalle>\n";
 		echo $Detalle;
@@ -146,7 +147,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 <br>
 <center>
 
-<?
+<?php
 function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 {
 	global $PaginaPrefijo;
@@ -180,7 +181,7 @@ function MuestraVacio($x,$y)
 <p>
 <table cellspacing=1 cellpadding=3 width=600 border=0 bgcolor=black>
 
-<?
+<?php
 
 	$x=0; $y=0;
 	$ncols = 3;
@@ -215,7 +216,7 @@ function MuestraVacio($x,$y)
 
 </table>
 
-<?
+<?php
 	}
 
 
@@ -226,45 +227,45 @@ function ArticuloMuestra($Id,$Titulo,$Resumen,$Contenido,$Url) {
 ?>
 <tr>
 <td class=item valign=top>
-<a class=item target='_blank' href="<? echo $PaginaPrefijo; ?>ArticuloVe.php?Id=<? echo $Id; ?>">
-<? echo $Titulo; ?>
+<a class=item target='_blank' href="<?php echo $PaginaPrefijo; ?>ArticuloVe.php?Id=<?php echo $Id; ?>">
+<?php echo $Titulo; ?>
 </a>
-<?
+<?php
 	if (EsAdministrador()) {
 ?>
 &nbsp;
 &nbsp;
-<a href="<? echo $PaginaPrefijo; ?>Articulo.php?Id=<? echo $Id; ?>">Administra</a>
-<?
+<a href="<?php echo $PaginaPrefijo; ?>Articulo.php?Id=<?php echo $Id; ?>">Administra</a>
+<?php
 	}
 ?>
 <br>
-<? echo NormalizaHtml($Resumen); ?>
+<?php echo NormalizaHtml($Resumen); ?>
 </td>
 </tr>
-<?
+<?php
 	}
 	else {
 ?>
 <tr>
 <td class=item valign=top>
-<a class=item href="<? echo $PaginaPrefijo; ?>ArticuloMuestra.php?Id=<? echo $Id; ?>">
-<? echo $Titulo; ?>
+<a class=item href="<?php echo $PaginaPrefijo; ?>ArticuloMuestra.php?Id=<?php echo $Id; ?>">
+<?php echo $Titulo; ?>
 </a>
-<?
+<?php
 	if (EsAdministrador()) {
 ?>
 &nbsp;
 &nbsp;
-<a href="<? echo $PaginaPrefijo; ?>Articulo.php?Id=<? echo $Id; ?>">Administra</a>
-<?
+<a href="<?php echo $PaginaPrefijo; ?>Articulo.php?Id=<?php echo $Id; ?>">Administra</a>
+<?php
 	}
 ?>
 <br>
-<? echo NormalizaHtml($Resumen); ?>
+<?php echo NormalizaHtml($Resumen); ?>
 </td>
 </tr>
-<?
+<?php
 	}
 }
 	if ($rsArticulos && mysql_num_rows($rsArticulos)) {
@@ -273,32 +274,32 @@ function ArticuloMuestra($Id,$Titulo,$Resumen,$Contenido,$Url) {
 <p>
 <h2>Art&iacute;culos</h2>
 <p>
-<a href='<? echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<? echo $Id; ?>&NItems=<? echo $NItems; ?>'>Todos los art&iacute;culos</a>
+<a href='<?php echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<?php echo $Id; ?>&NItems=<?php echo $NItems; ?>'>Todos los art&iacute;culos</a>
 </p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=3>
-<?
+<?php
 		while ($reg=mysql_fetch_object($rsArticulos))
 			ArticuloMuestra($reg->Id, $reg->Titulo, $reg->Resumen, $reg->Contenido, $reg->Enlace);
 ?>
 </table>
 </p>
-<?
+<?php
 	if ($NArticulos>=$NMaxArticulos) {
 ?>
 <p align=right>
-<a href='<? echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<? echo $Id; ?>&NItems=<? echo $NItems; ?>'>M&aacute;s art&iacute;culos...</a>
+<a href='<?php echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<?php echo $Id; ?>&NItems=<?php echo $NItems; ?>'>M&aacute;s art&iacute;culos...</a>
 </p>
-<?
+<?php
 	}
 ?>
-<?		
+<?php	
 	}	
 
 	mysql_free_result($rsArticulos);
 ?>
 
-<?
+<?php
 function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 {
 	global $PaginaPrefijo;
@@ -308,27 +309,27 @@ function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 ?>
 <tr>
 <td class=item valign=top>
-<a class=item target='_blank' href="<? echo $PaginaPrefijo; ?>ItemVe.php?Id=<? echo $Id; ?>">
-<? echo $Descripcion; ?>
+<a class=item target='_blank' href="<?php echo $PaginaPrefijo; ?>ItemVe.php?Id=<?php echo $Id; ?>">
+<?php echo $Descripcion; ?>
 </a>
-<?
+<?php
 	if (EsAdministrador()) {
 ?>
 &nbsp;
 &nbsp;
-<a href="<? echo $PaginaPrefijo; ?>Item.php?Id=<? echo $Id; ?>">Administra</a>
-<?
+<a href="<?php echo $PaginaPrefijo; ?>Item.php?Id=<?php echo $Id; ?>">Administra</a>
+<?php
 	}
 ?>
 <br>
-<? echo NormalizaHtml($Detalle); ?>
+<?php echo NormalizaHtml($Detalle); ?>
 </td>
 </tr>
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 	$sql = "Select i.* from categoriasitems ci left join items i on ci.IdItem = i.Id where ci.IdCategoria = $Id and ci.Estado=0 and i.Estado=0";
 	$sql .= " order by i.Prioridad, i.Visitas desc, i.Id";
 	$sql .= " limit 0, 10";
@@ -341,26 +342,26 @@ function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 ?>
 <h2>Enlaces</h2>
 <p>
-<a href='<? echo $PaginaPrefijo; ?>TemaEnlaces.php?Id=<? echo $Id; ?>&NArticulos=<? echo $NArticulos; ?>'>Todos los enlaces</a>
+<a href='<?php echo $PaginaPrefijo; ?>TemaEnlaces.php?Id=<?php echo $Id; ?>&NArticulos=<?php echo $NArticulos; ?>'>Todos los enlaces</a>
 </p>
 <p>
 <table width="100%" cellspacing=0 cellpadding=3>
-<?
+<?php
 		while ($reg=mysql_fetch_object($rsItems))
 			ItemMuestra($reg->Id, $reg->Descripcion, $reg->Detalle, $reg->Url);
 ?>
 </table>
 <p>
-<?
+<?php
 	if ($NItems>=$NMaxItems) {
 ?>
 <p align=right>
-<a href='<? echo $PaginaPrefijo; ?>TemaEnlaces.php?Id=<? echo $Id; ?>&NArticulos=<? echo $NArticulos; ?>'>M&aacute;s enlaces...</a>
+<a href='<?php echo $PaginaPrefijo; ?>TemaEnlaces.php?Id=<?php echo $Id; ?>&NArticulos=<?php echo $NArticulos; ?>'>M&aacute;s enlaces...</a>
 </p>
-<?
+<?php
 	}
 ?>
-<?		
+<?php	
 	}
 ?>
 
@@ -368,7 +369,7 @@ function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 
 </center>
 
-<?
+<?php
 	Desconectar();
 
 	include($PaginaPrefijo.'Final.inc.php');

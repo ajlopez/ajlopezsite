@@ -1,4 +1,4 @@
-<?
+<?php
 	if (__Eventos_inc == 1)
 		return;
 	define ('__Eventos_inc', 1);

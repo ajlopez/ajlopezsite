@@ -1,4 +1,4 @@
-<?
+<?php
 
 if (__Campos_inc == 1) return;
 define ('__Campos_inc', 1);

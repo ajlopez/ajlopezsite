@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Traduccion_inc == 1)
 	return;
 define ('__Traduccion_inc', 1);

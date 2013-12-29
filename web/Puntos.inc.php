@@ -1,4 +1,4 @@
-<?
+<?php
 	if (__Puntos_inc == 1)
 		return;
 	define ('__Puntos_inc', 1);

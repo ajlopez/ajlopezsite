@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Articulos_inc == 1)
 	return;
 define ('__Articulos_inc', 1);

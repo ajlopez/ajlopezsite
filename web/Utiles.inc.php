@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Utiles_inc == 1)
 	return;
 define ('__Utiles_inc', 1);
