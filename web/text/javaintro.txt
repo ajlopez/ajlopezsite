@@ -1,0 +1,124 @@
+
+El lenguaje Java tiene una serie de características que lo hacen destacar.
+Es el fruto del desarrollo de la empresa Sun Microsystems, que necesitaba
+un lenguaje de programación para un proyecto interno. Al evaluar los
+lenguajes existentes, el equipo de desarrollo decidió crear uno nuevo, y
+así nace Java.
+
+.h2
+Clases y Objetos
+
+Java está totalmente basado en clases y objetos. Estudiaremos en el curso
+estos conceptos, pero vamos adelantando que todo en Java (aparte algunos
+tipos primitivos) es un objeto. Contrariamente a lenguajes híbridos como
+C++ o el popular Visual Basic, en Java no se permite programar fuera de
+un objeto o clase. No hay módulos o funciones globales.
+
+.h2
+Multiplataforma
+
+Pero una característica todavía más distintiva de Java, es su capacidad
+multiplataforma. Lenguajes como C o COBOL se han implementado
+en múltiples plataformas, pero siempre han necesitado recompilaciones o
+adaptaciones al pasar de una a otra. En cambio, Java desde el principio
+ha sido pensado para adaptarse a varios entornos. Esto lo consigue, no
+sólo a nivel de código fuente, sino también a nivel de código compilado.
+El programa que escribimos, se puede compilar en Windows o en Linux, y
+funciona. Pero además, hasta el programa compilado puede ejecutarse sin
+más preparación, en distintas máquinas. Eso lo consigue, porque Java se
+compila y ejecuta, no en un procesador o entorno en particular, sino en
+lo que se llama una "virtual machine", una máquina virtual. Nuestro
+programa Java podrá ejecutarse en cualquier sistema operativo que tenga
+una máquina virtual Java compatible.
+
+.h2
+Paquetes
+
+Java no es solamente un lenguaje, sino una tecnología. Al estar basado
+en clases y objetos, viene acompañado de un conjunto de éstos, que nos
+sirven como base para la programación de aplicaciones, de texto, gráficas
+o que se ejecuten en una página web como "applets". Estas clases se
+agrupan en paquetes. Gran parte del curso se ocupa en estudiar los
+distintos paquetes de clases que componen la librería Java estandard.
+Podemos nombrar los paquetes AWT (Abstract Window Toolkit) para el manejo
+de gráficos en cualquier entorno, el paquete Swing con nuevos componentes
+gráficos, y el JDBC (Java Database Connectivity), para acceso a base
+de datos.
+
+Estos son paquetes provistos por Sun, pero podemos construir
+nuestros propios paquetes, o comprar paquetes comerciales de terceras
+partes. Hay un gran mercado de clases y paquetes ya desarrollados.
+
+.h2
+Java en el "browser"
+
+Al ser multiplataforma, Java fue adoptado por Netscape como la tecnología
+con la que se desarrollaron "applets", pequeñas aplicaciones que corren
+dentro de una página web. Cada navegador implementa una máquina virtual
+Java, que permite ejecutar las applets en el computador del cliente. Esto
+ha sido implementado por los navegadores de Netscape y de Microsoft, y
+en el caso del primero, en varias plataformas. Esto ha permitido que
+las applets se puedan ejecutar tanto en Windows, como en Unix, como en 
+Linux.
+
+.h2
+Java en el servidor
+
+Pero si bien Java alcanzó popularidad en la web, hoy la corriente principal
+del desarrollo se concentra en el servidor, donde Sun ha desarrollado
+una plataforma denominada "Java Enterprise", Java empresarial. El foco
+se ha puesto en la creación de aplicaciones de negocios, que corren en
+servidores preparados para albergarlas.
+
+.h2
+Acceso a base de datos
+
+Uno de los paquetes de clases nombrados, el paquete JDBC, permite acceder
+a distintas bases de datos, de forma que se encapsulan las diferencias
+entre ellas. Basta tener un "driver JDBC" para la base que queremos manejar,
+y podremos acceder a sus dats. De esta forma, Java maneja practicamente
+todas las bases de datos relacionales, desde Microsoft SQL Server, Oracle,
+Sybase, Informix, como Access y MySQL.
+
+.h2
+Manejo automático de memoria
+
+Durante la ejecución de un programa Java, se crean objetos de distintas
+clases. En otros lenguajes, la creación de objetos debe estar acompañada
+de su correspondiente destrucción, a cargo del programador. Por ejemplo,
+en C++, es el programador el que crea y destruye programáticamente los
+objetos. Esto ha sido fuente de múltiples errores, de dos tipos: o un
+objeto nunca es destruído, ocupando memoria, o un objeto es destruído
+cuando aún se necesita usarlo. En cambio, en Java, la liberación del
+objeto es automático. Hay un proceso, denominado "garbage collector" 
+(recolector de basura, podemos traducir), que se encarga de detectar
+los objetos que no se usan más en nuestra aplicación, y los destruye.
+El algoritmo que se usa, asegura que sólo se destruye un objeto cuando
+el resto del programa no lo usa. En Java, el programador puede concentrarse
+en la lógica de la aplicación, sin tener que vigilar el uso de la
+memoria, que queda automáticamente manejada por el entorno.
+
+.h2
+Multitarea
+
+Entre tantas capacidades, Java incorpora desde el principio el manejo
+de "threads", múltiples hilos de ejecución dentro de nuestro proceso. Con
+threads, podemos ejecutar varios métodos en paralelo, o en varios
+procesadores, si están disponibles. En otros lenguajes, este manejo
+se incorpora mediante extensiones y funciones adicionales. En el lenguaje
+Java, el manejo de threads ya está incorporado en las facilidades básicas
+del lenguaje. Está contemplado el acceso sincronizado a objetos y métodos.
+
+.h2
+Java como tecnología
+
+Java es más que un lenguaje. El conjunto de paquetes disponibles, que
+siempre está creciendo, ya por aportes nuevos de Sun, ya por la creación
+de paquetes por otras empresas, permite que Java sea una tecnología
+totalmente extensible. Hasta se permite conectarse con librerías
+nativas, con lo que esta extensibilidad prácticamente no tiene límites.
+
+Como vemos, Java tiene muchas facetas. Como objeto de estudio, Java es
+muy extenso, y, de alguna forma, es un "blanco móvil", ya que permanentemente
+se le agregan nuevas capacidades.
+

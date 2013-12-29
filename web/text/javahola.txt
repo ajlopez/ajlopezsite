@@ -1,0 +1,229 @@
+
+Como dicta la tradición, nuestra primera aplicación será el conocido
+"Hola mundo". Más adelante, desarrollaremos el mismo ejemplo, pero en
+forma de applet, en una página web.
+
+.h2
+Creando el programa
+
+El código fuente Java se escribe en un archivo de texto. Para crearlo,
+podemos usar cualquier editor de texto, o un entorno de desarrollo como
+el NetBeans, el JBuilder, u otro. Para nuestra primera aplicación, crearemos
+un archivo HolaMundo.java (es importante respetar mayúsculas y minúsculas en 
+los ejemplos que damos), con el contenido:
+
+.code
+public class HolaMundo {
+	public static void main(String args[]) {
+		System.out.println("Hola, mundo");
+	}
+}
+.
+
+Este es nuestro primer ejemplo de código Java. Si Ud. conoce ya el lenguaje
+C, le resultará familiar la sintaxis del ejemplo. Examinemos las distintas
+partes de este primer programa.
+
+.h2
+Nuestra primera clase
+
+En principio, notamos que todo está dentro de una estructura, entre llaves.
+Esa estructura, está encabezada por la declaración:
+
+.code
+public class HolaMundo {
+.
+
+Como comentábamos antes, todo en Java es una clase. Esta declaración
+define una clase con nombre HolaMundo. El modificador "public" nos indica
+que esta clase puede accederse desde otras clases. Si una clase está
+definida como pública, debe residir en un archivo que tenga su mismo 
+nombre, y con extensión ".java". De ahí la importancia de haber creado
+el archivo con el nombre HolaMundo.java.
+
+.h2
+El método main
+
+Dentro de una clase podemos definir dos cosas: variables o métodos (rutinas,
+funciones). En nuestro ejemplo, tenemos definido un método:
+
+.code
+	public static void main(String args[]) {
+.
+
+El nombre del método es "main". En este caso, es un método muy especial:
+es el método que se lanzará al comienzo de la ejecución del programa. Es
+por eso, un método distinguido. Si no escribiéramos este método, nuestra
+clase compilaría, pero no podríamos ejecutarla.
+
+Como método de inicio del programa, debe tener la definición que le dimos.
+Se define como "public" porque es un método que será visible desde otras
+clases. El modificador "static" quedará más claro cuando veamos clases y
+objetos en detalle. Por ahora, podemos adelantar que indica que el método
+es de la clase HolaMundo, y no de un objeto en particular.
+El modificador "void" se puede explicar ahora: como
+método, main puede devolver un valor. Al indicar void, declaramos que
+es un método que no devuelve un valor, es decir, es una rutina, no una
+función. Veremos más adelante qué otros tipos de datos puede devolver
+un método.
+
+Luego del nombre de la función, se abren paréntesis. Estos son obligatorios.
+Entre ( y ) se declaran los argumentos del método, los valores que se
+le entregan cuando se lo invoca.
+
+En este caso, el método tiene un solo argumento, que llamamos "args". Podría
+haber llevado otro nombre. Es como una variable que definimos con el nombre
+que querramos. El tipo de este parámetro es "String". Recordemos que Java
+es un lenguaje "case sensitive", donde se distingue entre minúsculas y 
+mayúsculas. El tipo String es uno de los tipos de Java, es más, es una clase.
+Es nuestro primer contacto con una de las clases de la librería de Java. A
+diferencia de otros lenguajes, en Java, un String es un objeto de la clase
+String, no un tipo primitivo. Examinaremos métodos de esa clase a lo largo
+de los ejemplos del curso.
+
+Pero args no es sólo un String. Es un arreglo de String. Eso es por el
+uso de [] en la declaración:
+
+.code
+	String args[]
+.
+
+Esos corchetes declaran que es un arreglo, en este caso, de String. Por qué
+la existencia de este parámetro en main? Esta clase ejecutará un programa
+de consola. Lo lanzaremos desde la línea de comando (el próximo punto
+a estudiar es cómo compilamos y ejecutamos la clase). Cuando escribimos
+un comando, podemos agregarle parámetros. Justamente esos parámetros opcionales
+son los que Java se encarga de entregarnos en el argumento args. Notemos
+que al declarar un arreglo, no hemos puesto la cantidad de elementos que
+tiene.
+
+.h2
+Escribiendo en la consola
+
+Examinemos la sentencia:
+
+.code
+	System.out.println("Hola, mundo");
+.
+
+Primero, la sentencia termina en ; (punto y coma). En Java, como en otros
+lenguajes, hay que indicar explícitamente cuando termina un comando. Esto
+es así, porque no trata como especiales los cambios de línea, como en 
+Visual Basic o xBase. El fin de línea es tratado por el compilador Java
+como un espacio en blanco. La sentencia de arriba se podría entonces, haber
+escrito:
+
+.code
+	System.out.println
+	(
+	"Hola, mundo"
+	)
+	;
+.
+
+y hubiera seguido funcionado igual.
+
+En otros lenguajes, para imprimir algo en la pantalla, basta con apelar a
+algún verbo o función como "print". Pero recordemos que Java está totalmente
+basado en clases y objetos. Entonces, no existe el concepto de función
+global como "print". Los métodos (rutinas o funciones) son siempre de
+alguna clase u objeto. Entre las clases que Java provee, se encuentra "System".
+Ya estamos descubriendo que los nombres de las clases (como HolaMundo, String)
+comienzan con una letra mayúscula. Esto es simplemente convencional. Pero
+los programadores de Java de Sun, han definido todas las clases siguiendo
+esa convención, y en general es respetada. Dentro de la clase System, hay
+un miembro "out" que es un objeto que representa toda la interacción con
+la salida del programa. Este objeto pertenece a una clase de salida, y entre
+sus métodos, tiene a "println".
+
+.h2
+Probando nuestra aplicación
+
+El código fuente de Java siempre reside en archivos con extensión .java. Ahora,
+para ejecutarlos, debemos transformarlos en archivos con extensión .class. Esa
+es la función del compilador. Desde la línea de comandos, en nuestro directorio
+de trabajo, ejecutamos:
+
+.code
+javac HolaMundo.java
+.
+
+Esto invoca al compilador javac, que forma parte del JDK. Si todo funciona
+bien, en nuestro directorio aparece un nuevo archivo HolaMundo.class. Este contiene
+el código compilado listo para ser ejecutado por la máquina virtual Java. Observemos
+que no es un típico programa ejectable Linux o Windows.
+
+Para ejecutarlo, apelamos al intérprete de Java del JDK, con:
+
+.code
+java HolaMundo
+.
+
+y debe aparecer nuestro saludo en la consola.
+
+El comando "java" es el intérprete de Java, que instaló el JDK. Puede haber
+más programas intérpretes en nuestra máquina. Si estamos en Windows, probablemente
+tengamos instalado el intérprete que Microsoft incorpora en el Internet Explorer.
+Podemos probarlo con:
+
+.code
+jview HolaMundo
+.
+
+y debe producir el mismo resultado.
+
+.h2
+Problemas en la compilación y ejecución
+
+Si el compilador javac encuentra algún problema, lo avisa en la consola. Pero
+también es frecuente que el javac no pueda encontrarse, dando el sistema
+operativo algún mensaje como:
+
+.code
+javac: Command not found
+.
+
+Esto ocurre cuando no tenemos el directorio de los binarios del JDK incluído
+en nuestro PATH (la lista de directorios donde el intérprete de comandos que
+usemos esté buscando a los ejecutables).
+
+Para solucionar el problema, debemos incluir el directorio de los binarios, por
+ejemplo, en Windows, es c:\jdk1.3\bin, si el JDK quedó instalado en el directorio
+c:\jdk1.3
+
+Otro problema común en la compilación, son los errores sintácticos. El compilador
+Java es estricto: no permite que nos olvidemos una llave o un punto coma. En caso
+de encontrar un problema de este tipo, avisa en la pantalla el tipo de problema
+y la línea donde lo encontró.
+
+Por ejemplo, si hemos escrito:
+
+.code
+	System.out.printl("Hola, mundo");
+.
+
+está mal, porque debería haber sido "println". El método "printl" no existe,
+y el compilador nos avisará con un mensaje del tipo:
+
+.code
+HolaMundo.java:3> Method printl(java.lang.String) not found in class
+java.io.PrintStream.
+	System.out.printl("Hola, mundo");
+                   ^
+.
+
+Otro error común es escribir mal el nombre de la clase. Si el código es:
+
+.code
+public class Holamundo {
+.
+
+con "mundo" en minúscula, el compilador genera un archivo Holamundo.class, y
+al pedir:
+
+.code
+java HolaMundo
+.
+
+el intérprete java no encuentra la clase, y da un error de "Class not found".
+

@@ -1,0 +1,3 @@
+<?
+	echo $PHP_SELF;
+?>

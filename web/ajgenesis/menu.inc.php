@@ -1,0 +1,9 @@
+<?
+	MenuInicio('AjGenesis');
+	MenuOpcion('Home','ajgenesis/index.php');
+	MenuOpcion('Downloads','ajgenesis/downloads.php');
+	MenuOpcion('Documentation','ajgenesis/documentation.php');
+	MenuOpcion('Examples','ajgenesis/examples.php');
+	MenuOpcion('License','ajgenesis/license.php');
+	MenuFinal();
+?>

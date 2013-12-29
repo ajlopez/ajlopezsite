@@ -1,0 +1,196 @@
+
+BODY {
+	Font-Family: Arial;
+	Font-size: 8pt;
+	Color: black;	
+}
+
+P {
+	Font-Family: Verdana, Arial;
+	Font-size: 10pt;
+	Color: black;	
+}
+
+H1 {
+	Font-Family: Verdana, Arial;
+	Font-size: 16pt;
+	Font-weight: normal;
+	color: #cc0000;
+/* rgb(0,0,128); */
+}
+
+H2 {
+	Font-Family: Arial;
+	Font-weight: normal;
+	Font-size: 14pt;
+	color: #000000;
+}
+
+H3 {
+	Font-Family: Arial;
+	Font-weight: normal;
+	Font-size: 11pt;
+	color: #000000;
+}
+A {
+	COLOR: #000080
+}
+A:visited {
+	
+}
+A:active {
+	
+}
+A:hover {
+	COLOR: #ff6600
+}
+
+A.opcion {
+	color: #003366;
+	Font-Family: Verdana, Arial;
+	font-size: 8pt;
+/*	color: rgb(0,0,155); */
+/*	color: rgb(155,0,0); */
+	text-decoration: none;
+}
+
+A.opcion:hover {
+	text-decoration: underline;
+}
+
+A.categoria {
+	Font-Family: Arial;
+	Font-size: 10pt;
+	font-weight: bold;
+	color: rgb(0,0,128);
+}
+
+A.categoria:hover {
+	color: rgb(0,0,128);
+}
+
+A.item {
+	Font-Family: Arial;
+	Font-size: 10pt;
+	font-weight: bold;
+	color: rgb(0,0,128);
+}
+
+A.item:hover {
+	color: rgb(0,0,128);
+}
+
+.categoria {
+	Font-Family: Arial;
+	Font-size: 8pt;
+	color: rgb(64,64,64);
+}
+
+.item {
+	Font-Family: Arial;
+	Font-size: 10pt;
+	color: rgb(64,64,64);
+}
+
+BODY {
+
+}
+
+.titulo {
+	Font-Family: Arial;
+	Font-size: 9pt;
+	font-weight: normal;
+	background: rgb(185,185,185);
+	color: rgb(0,0,153);
+}
+
+.tope {
+	background: rgb(255,255,255);
+	color: rgb(0,0,0);
+	Font-Family: Arial;
+	Font-size: 10pt;
+}
+
+.izquierda {
+	background: #f0f0f0;
+}
+
+.titulositio {
+	Font-Family: Arial;
+	Font-size: 20pt;
+	font-weight: bold;
+	color: black;
+}
+
+.dato {
+	Font-Family: Arial;
+	Font-size: 9pt;
+	color: rgb(0,0,128);
+	background: rgb(230,230,230);
+}
+
+.leyenda {
+	Font-Family: Arial;
+	Font-size: 9pt;
+	color: rgb(0,0,0);
+	background: rgb(210,210,210);
+}
+
+.opcion {
+	Font-Family: Arial;
+	Font-size: 10pt;
+	color: rgb(255,255,255);
+	background: "#DBDACC";
+/*	background: #c0c0c0; */
+/*	background: #FFBB77; */
+/*	background: rgb(210,210,255); */
+}
+
+.texto {
+	Font-Family: Arial;
+	Font-size: 9pt;
+	color: rgb(0,0,128);
+}
+
+.pie {
+	Font-Family: Arial;
+	Font-size: 9pt;
+	color: rgb(0,0,0);
+
+}
+
+.noticiatitulo {
+	Font-Family: Arial;
+	Font-size: 14pt;
+	Color: rgb(0,0,153);
+}
+
+a.noticia {
+	text-decoration: none;
+	Color: rgb(0,0,153);
+}
+
+a.noticiaresumen {
+	Font-Family: Arial;
+	Font-size: 11pt;
+	Color: black;	
+}
+
+.noticiacopete {
+	Font-Family: Arial;
+	Font-size: 11pt;
+	Font-Weight: bold;
+	Color: black;	
+}
+
+.noticiatexto {
+	Font-Family: Verdana, Arial;
+	Font-size: 9pt;
+	Color: black;	
+}
+
+a:hover.noticia {
+	text-decoration: none;
+	Color: rgb(0,0,200);
+}
+

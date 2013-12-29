@@ -1,0 +1,28 @@
+
+La herramienta que podemos usar para compilar los ejemplos y probarlos, es
+el llamado JDK (Java Development Kit), que se puede bajar gratuitamente de
+la pagina de Sun:
+
+.ax
+http://java.sun.com
+java.sun.com
+
+Está disponible en distintas plataformas, como Windows y Linux. Por ejemplo,
+en Windows, el instalador pide aceptar los términos, y en qué directorio
+lo instalamos, por ejemplo, c:\jdk1.3. Conviene colocar en el PATH el
+directorio c:\jdk1.3\bin que contiene los binarios ejecutables del kit.
+
+En Linux, el JDK puede instalarse como paquete, y se instala dentro
+del directorio /usr/java.
+
+Qué trae el JDK para nosotros? Varios utilitarios, pero los principales serán:
+
+- El compilador javac que transforma los archivos fuente .java a archivos con
+instrucciones para la máquina virtual .class
+
+- El intérprete java que es la propia máquina virtual.
+
+- Utilitarios como el appletviewer que permite probar un applet dentro de una
+página HTML, sin necesidad de tener un "browser", o el javadoc, que genera
+documentación de un programa a partir de su código fuente.
+

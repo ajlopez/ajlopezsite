@@ -1,0 +1,30 @@
+
+Una aplicación Visual Basic está contenida en un proyecto. Un proyecto es un conjunto de archivos
+que componen el código y la apariencia de la aplicación. Dentro de un proyecto podemos encontrar
+distintos elementos: formularios, módulos de programación, y clases (veremos más adelante el concepto
+de clase y objeto).
+
+El entorno permite crear, modificar y grabar estos elementos, así como compilar el proyecto, o
+ejecutarlo.
+
+Entre los componentes de un proyecto, tenemos:
+
+- Un archivo de proyecto, terminado en .vbp
+.br
+- Un archivo para cada formulario, cada ventana, terminado en .frm
+.br
+- Un archivo auxiliar con datos adicionales de cada formulario, terminado en .frx
+.br
+- Un archivo para cada módulo, terminado en .bas
+.br
+- Un archivo para cada clase, terminado en .cls
+.br
+
+.h2
+Concepto de Formulario
+
+Un formulario no es más ni menos, que una ventana. Una aplicación Windows puede componerse de una
+o más ventanas. En un proyecto, podemos tener uno o más formularios. En un formulario, podremos
+agregar controles (etiquetas de texto, cajas de ingreso de texto, botones, listas...). En nuestros
+primeros ejemplos, estos controles no serán necesarios.
+

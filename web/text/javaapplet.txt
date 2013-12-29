@@ -1,0 +1,195 @@
+
+Sabemos que una de las primeras aplicaciones de Java, la que lo hizo popular
+a mediados de los noventa, es la capacidad de generar aplicaciones gráficas,
+que pueden incrustarse en páginas HTML, llamadas "applets", pequeñas aplicaciones.
+
+Escribamos nuestro saludo, pero ahora en forma de applet. Ingresemos en
+el archivo 
+.b
+HolaApplet.java
+ el código:
+
+.code
+import java.awt.*;
+import java.applet.*;
+
+public class HolaApplet extends Applet {
+	public void paint(Graphics g) {
+		g.drawString("Hola, Applet", 50,50);
+	}
+}
+.
+
+Lo compilamos con el comando
+
+.code
+javac HolaApplet.java
+.
+
+Si todo está bien, generará un archivo HolaApplet.class
+
+Pero si vemos el código (donde hay sentencias nuevas, que en breve examinaremos), notamos que no hay un método "main".
+Si pedimos ejecutar
+
+.code
+java HolaApplet
+.
+
+nos dará un error al tratar de lanzar una clase sin punto de entrada. Es que ésta ya no es una aplicación de consola,
+sino un applet. Y para ejecutarla, necesitamos embeberla en una páginas HTML. Creemos un archivo HolaMundo.html con:
+
+.code
+<applet code="HolaApplet.class" width=400 height=300>
+</applet>
+.
+
+Vemos que es código HTML mínimo, sin "tags" como <html> o <body>, que bien podrían estar. El "tag" que es imprescindible,
+es el de <applet>. Este "tag" tiene atributos, de los que hemos usado:
+
+- 
+.b
+code
+: Indica la clase que pondremos a funcionar en este lugar de la página. Notemos que tenemos que poner el nombre
+completo.
+ 
+- 
+.b
+width
+: Es el ancho que se le otorgará a nuestro applet en la página.
+
+- 
+.b
+height
+: Es la altura para nuestro applet.
+
+El "tag" debe cerrarse con 
+.b
+</applet>
+explícitamente. Nuestro applet ocupará entonces un rectángulo en la página
+que estemos construyendo, de forma similar a como una imagen lo ocupa.
+
+Podemos abrir el archivo HTML en nuestro explorador, o mejor aún, visualizarlo con un utilitario del JDK:
+
+.code
+appletviewer HolaMundo.html
+.
+
+Este utilitario 
+.b
+appletviewer
+ permite ver un applet, indicando su archivo HTML, sin necesidad de levantar el "browser".
+
+Este es el resultado:
+
+.im
+images/javaholaapplet.gif
+
+Ahora, volvamos al código. Qué conceptos nuevos aparecen?
+
+Las dos primeras líneas:
+
+.code
+import java.awt.*;
+import java.applet.*;
+.
+
+son declaraciones para el compilador. Le avisan lo siguiente: hay clases, que vamos a usar en este archivo, que provienen
+de un grupo de clases, que en Java se llama paquete. Se indica que vamos a usar clases del paquete java.awt, y clases
+del paquete 
+.b
+java.applet
+. Son dos de los paquetes de clases de la librería Java normal. El "import" indica que necesitamos
+importar esos paquetes de clases.
+
+El paquete 
+.b
+java.awt 
+debe su nombre al 
+.b
+AWT
+ (Abstract Window Toolkit), un conjunto de clases que nos permite usar métodos
+gráficos, y componentes, independizándonos de la plataforma. Los objetos AWT se pueden usar en Windows, en X/Windows de Linux
+o en cualquier otro entorno gráfico que tenga implementada una máquina virtual de Java. Por ejemplo, vamos a manejar
+ventanas y botones, y las aplicaciones correrán en las distintas plataformas, sin necesidad de reescribir el código, o de
+recompilar.
+
+El paquete 
+.b
+java.applet
+ se encarga de definir una serie de clases adicionales, en especial, la clase Applet, que nos
+permite generar aplicaciones del tipo applet, para ejecutar desde una página HTML.
+
+Si no colocamos las declaraciones "import", nuestro ejemplo no compilaría. El compilador no encontraría cuál es, por ejemplo,
+la clase 
+.b
+Applet
+ o la clase 
+.b
+Graphics
+, que son usadas en el código.
+
+En nuestro primer ejemplo 
+.b
+Hola.java
+, no tuvimos necesidad de colocar un "import". Pero usamos clases, como 
+.b
+String
+ y
+.b
+System
+. Cómo fue que el compilador las tomó como válidas? Pues porque las busca en un paquete que siempre se
+incluye, aunque no lo pongamos explícitamente. String y System, como muchas otras clases, residen en el paquete java.lang,
+el paquete del lenguaje. Podríamos haber incluído:
+
+.code
+import java.lang.*;
+.
+
+pero hubiera dado el mismo resultado. El paquete java.lang es el paquete básico, que prácticamente todas las aplicaciones
+necesitan, así que se incluye sin que el programador lo solicite.
+
+Es interesante observar, que el nombre de la clase String, es en realidad:
+
+.code
+java.lang.String
+.
+
+Y la clase Applet, en realidad se llama:
+
+.code
+java.applet.Applet
+.
+
+Así que si no incluimos el paquete correspondiente, igualmente podemos poner el nombre completo de la clase, y el
+compilador la reconocerá. Por ejemplo, si no colocamos el "import java.applet.*;" podemos escribir igual:
+
+.code
+public class HolaApplet extends java.applet.Applet {
+.
+
+y funciona. Pero cuando tengamos muchas clases usados, es más cómodo el método del "import".
+
+Estudiaremos en el curso varios paquetes. Otros lenguajes tienen librerías y clases, pero no paquetes. Este concepto
+nace para poder agrupar clases, y también para evitar las colisiones de nombres. Podemos comprar paquetes a empresas, o
+desarrollar nuestro paquetes. Pero si dos programadores diseñan clases con el mismo nombre, por ejemplo, Matriz,
+no habrá problema en usarlas en el mismo proyecto, pues entonces, para evitar la colisión de nombres, usaremos
+su nombre completo, por ejemplo, 
+.b
+mipaquete.Matriz
+ en un caso, 
+.b
+tupaquete.Matriz
+ en otro.
+
+Sigamos con el estudio del ejemplo. Vemos la línea:
+
+.code
+public class HolaApplet extends Applet {
+.
+
+De nuevo declaramos una clase pública, con el mismo nombre que el archivo .java. La palabra "extends" indica que
+nuestra clase no es una clase cualquiera, sino que hereda de la clase Applet, es descendiente de esta clase. Qué
+significa esto? Quedará más claro cuando estudiemos clases y objetos, pero por ahora basta saber que toda la
+funcionalidad de Applet la heredamos y usamos en nuestra clase HolaApplet. Es un concepto fundamental en clases
+y objetos, la capacidad de aprovechar lo ya definido en una clase, para armar otra nueva.
+

@@ -1,0 +1,143 @@
+
+body {
+	background-color: #fff;
+//	background-color: white;
+	color: #000;
+	font-size: 12pt;
+	font: Verdana, Arial, sans-serif;
+}
+
+BODY {
+	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; 
+//	BACKGROUND: #f9f9f9 no-repeat 0px 0px;
+	BACKGROUND: white;
+	 PADDING-BOTTOM: 0px; MARGIN: 0px; FONT: x-small sans-serif; COLOR: black; PADDING-TOP: 0px
+}
+
+PRE {
+	border: 1px solid #d0d0d0;
+	padding: 3px 3px 3px 3px;
+	FONT-SIZE: 10pt;
+}
+
+TABLE {
+	FONT-SIZE: 100%; BACKGROUND: white; COLOR: black
+}
+A {
+	BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: #002bb8; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #5a3696
+}
+A:active {
+	COLOR: #faa700
+}
+A:hover {
+	TEXT-DECORATION: underline
+}
+A.stub {
+	COLOR: #772233
+}
+A.new {
+	COLOR: #ba0000
+}
+
+div.AjWikiPageTitle {
+	margin: 0px 2%;
+	font-size: 18pt; 
+}
+
+div.AjwHeading2 {
+	font-size: 16pt; 
+}
+
+div.AjwHeading3 {
+	font-size: 14pt; 
+}
+
+div.AjwNormal {
+	font-size: 12pt;
+}
+
+#AjWikiControls {
+	margin: 10px 2%;
+}
+
+#AjWikiControls a {
+	color: #666;
+	background-color: #fff;
+	text-decoration: none;
+	border: 1px solid #d0d0d0;
+	padding: 1px 3px;
+	font-size: 10pt;
+}
+
+#AjWikiControls a:hover {
+	color: #00008b;
+	border-color: #eee;
+	background-color: #f5f5f5;
+}
+
+#AjWikiContent {
+/*
+	margin: 0px 2%;
+	padding: 2px 5px;
+	border: 1px solid #eee;
+	background-color: #f5f5f5;
+	color: #000;
+	BORDER-RIGHT: #aaa 1px;
+	PADDING-RIGHT: 1em;
+	BORDER-TOP: #aaa 1px solid;
+	PADDING-LEFT: 1em;
+	Z-INDEX: 2;
+	BACKGROUND: white;
+	PADDING-BOTTOM: 1.5em;
+*/	
+	BACKGROUND: #f9f9f9;
+	border-color: #eee;
+	border: 1px solid #d0d0d0;
+	margin: 10px 2%;
+	padding: 10px 10px 10px 10px;
+/*
+	BORDER-LEFT: #aaa 1px solid;
+	BORDER-RIGHT: #aaa 1px solid;
+	BORDER-TOP: #aaa 1px solid;
+	COLOR: black;
+	LINE-HEIGHT: 1.5em;
+	PADDING-TOP: 3px;
+	BORDER-BOTTOM: #aaa 1px solid;
+	POSITION: relative
+*/
+}
+
+/*
+#AjWikiContent a {
+	color: #00008b;
+	text-decoration: underline;
+	background-color: #f5f5f5;
+}
+
+#AjWikiContent a:visited {
+	color: #00008b;
+	text-decoration: none;
+	background-color: #f5f5f5;
+}
+
+#AjWikiContent a:hover {
+	color: #00f;
+	background-color: #f5f5f5;
+}
+
+#AjWikiContent span.box {
+	border: 1px solid #ddd;
+	padding: 1px 2px;
+	margin: 1px;
+}
+
+#AjWikiContent pre {
+	border: 1px solid #eee;
+	background-color: #fff;
+	padding: 2px 5px;
+	font-family: monospace;
+}
+*/
