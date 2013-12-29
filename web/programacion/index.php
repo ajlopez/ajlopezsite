@@ -1,7 +1,7 @@
 <?php
 	$PaginaPrefijo='../';
 
-	$pagina = $PHP_SELF;
+	$pagina = $_SERVER['PHP_SELF'];
 
 	if (substr($pagina,-1)=='/')
 		$pagina = substr($pagina,0,strlen($pagina)-1);
