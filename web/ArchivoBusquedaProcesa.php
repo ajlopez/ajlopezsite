@@ -1,9 +1,11 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+
 	$PaginaTitulo = $Archivo;
 
 	$file = fopen($Archivo,"r");
 
-	include('Conexion.inc.php');
+	include_once('Conexion.inc.php');
 //	include('Inicio.inc.php');
 
 	define("EST_URL",1);
@@ -185,7 +187,7 @@ function ProcesaLinea($linea)
 		echo "<a href='Categoria.php?Id=$IdCategoria'>Categoría</a>\n";
 ?>
 
-<?
+<?php
 //	include('Final.inc.php');
 	Desconectar();
 ?>

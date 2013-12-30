@@ -1,6 +1,8 @@
-<?
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 
@@ -18,15 +20,15 @@
 
 <p>
 
-<a href="ArchivoNuevo.php?dir=<? echo $dir; ?>&padre=<? echo $padre; ?>">Nuevo Archivo</a>
+<a href="ArchivoNuevo.php?dir=<?php echo $dir; ?>&padre=<?php echo $padre; ?>">Nuevo Archivo</a>
 &nbsp;&nbsp;
-<a href="ArchivoSube.php?dir=<? echo $dir; ?>&padre=<? echo $padre; ?>">Subir Archivo</a>
+<a href="ArchivoSube.php?dir=<?php echo $dir; ?>&padre=<?php echo $padre; ?>">Subir Archivo</a>
 
 <p>
 
 <table>
 
-<?
+<?php
    $fd=opendir($dir);
    while ($archivo=readdir($fd)){
 	if ($archivo == '.')
@@ -43,7 +45,7 @@
 	        continue;
 ?>
 <tr>
-<?
+<?php
 	if (is_dir($archivo)) {
 		if ($archivo=='..')
 			$archivocompleto=$padre;
@@ -52,36 +54,36 @@
 		else
 			$archivocompleto=$archivo;
 ?>
-   <td><a href="ArchivosDirectorio.php?dir=<? echo $archivocompleto; ?>&padre=<? echo $dir; ?>"><? echo $archivo; ?></a></td>
-<?
+   <td><a href="ArchivosDirectorio.php?dir=<?php echo $archivocompleto; ?>&padre=<?php echo $dir; ?>"><?php echo $archivo; ?></a></td>
+<?php
 	}
 	else {
 ?>
-   <td><a href="<? echo $archivo; ?>"><? echo $archivo; ?></a></td>
-<?
+   <td><a href="<?php echo $archivo; ?>"><?php echo $archivo; ?></a></td>
+<?php
 	}
 ?>
-   <td><? echo filesize($archivo); ?></td>
-   <td><? echo filetype($archivo); ?></td>
-   <td><a href="ArchivoVer.php?archivo=<? echo $archivo; ?>&dir=<? echo $dir; ?>&padre=<? echo $padre; ?>">Ver </a></td>
-   <td><a href="ArchivoEditar.php?archivo=<? echo $archivo; ?>&dir=<? echo $dir; ?>&padre=<? echo $padre; ?>">Editar </a></td>
-   <td><a href="ArchivoEliminar.php?archivo=<? echo $archivo; ?>&dir=<? echo $dir; ?>&padre=<? echo $padre; ?>">Eliminar </a></td>
-<?
+   <td><?php echo filesize($archivo); ?></td>
+   <td><?php echo filetype($archivo); ?></td>
+   <td><a href="ArchivoVer.php?archivo=<?php echo $archivo; ?>&dir=<?php echo $dir; ?>&padre=<?php echo $padre; ?>">Ver </a></td>
+   <td><a href="ArchivoEditar.php?archivo=<?php echo $archivo; ?>&dir=<?php echo $dir; ?>&padre=<?php echo $padre; ?>">Editar </a></td>
+   <td><a href="ArchivoEliminar.php?archivo=<?php echo $archivo; ?>&dir=<?php echo $dir; ?>&padre=<?php echo $padre; ?>">Eliminar </a></td>
+<?php
 	if ($IdCategoria) {
 ?>
-   <td><a href="ArchivoBusquedaProcesa.php?Archivo=<? echo $archivo; ?>&Graba=1&IdCategoria=<? echo $IdCategoria; ?>">Importar </a></td>
-<?
+   <td><a href="ArchivoBusquedaProcesa.php?Archivo=<?php echo $archivo; ?>&Graba=1&IdCategoria=<?php echo $IdCategoria; ?>">Importar </a></td>
+<?php
 	}
 ?>
 </tr>
-<?
+<?php
   }
 ?>
 </table>
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

@@ -1,4 +1,7 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+
 	$Alias='blogs';
-	require('PaginaMuestra.php');
+
+	include('PaginaMuestra.php');
 ?>

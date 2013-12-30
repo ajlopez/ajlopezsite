@@ -1,13 +1,15 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Categorias.inc.php');
-	include('Traduccion.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Traduccion.inc.php');
+	include_once('Usuarios.inc.php');
 
 	Conectar();
 	
@@ -42,42 +44,42 @@
 <a href="Articulos.php">Art&iacute;culos</a>
 &nbsp;
 &nbsp;
-<a href="ArticuloMuestra.php?Id=<? echo $Id; ?>">Muestra</a>
+<a href="ArticuloMuestra.php?Id=<?php echo $Id; ?>">Muestra</a>
 &nbsp;
 &nbsp;
-<a href="en/Article.php?Id=<? echo $Id; ?>">Show</a>
+<a href="en/Article.php?Id=<?php echo $Id; ?>">Show</a>
 &nbsp;
 &nbsp;
-<a href="ArticuloActualiza.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="ArticuloActualiza.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="ArticuloElimina.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="ArticuloElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaSeleccionaArt.php?IdArticulo=<? echo $Id; ?>">Agrega a Categor&iacute;a</a>
+<a href="CategoriaSeleccionaArt.php?IdArticulo=<?php echo $Id; ?>">Agrega a Categor&iacute;a</a>
 &nbsp;
 &nbsp;
-<a href="ReferenciaActualiza.php?IdArticulo=<? echo $Id; ?>&Titulo=<? echo $Titulo; ?>">Arma Referencia</a>
+<a href="ReferenciaActualiza.php?IdArticulo=<?php echo $Id; ?>&Titulo=<?php echo $Titulo; ?>">Arma Referencia</a>
 <br>
-<?
+<?php
 	if ($IdEstado) {
 ?>
-<a href="ArticuloEstadoCambia.php?Id=<? echo $Id; ?>&Estado=0">Pasa a Normal</a>
-<?
+<a href="ArticuloEstadoCambia.php?Id=<?php echo $Id; ?>&Estado=0">Pasa a Normal</a>
+<?php
 	} else {
 ?>
-<a href="ArticuloEstadoCambia.php?Id=<? echo $Id; ?>&Estado=1">Pasa a Pendiente</a>
-<?
+<a href="ArticuloEstadoCambia.php?Id=<?php echo $Id; ?>&Estado=1">Pasa a Pendiente</a>
+<?php
 	}
 ?>
 &nbsp;
 &nbsp;
-<a href="Eventos.php?Tipo=AR&IdParametro=<? echo $Id; ?>">Visitas</a>
+<a href="Eventos.php?Tipo=AR&IdParametro=<?php echo $Id; ?>">Visitas</a>
 </p>
 <p>
 
 <table cellspacing=1 cellpadding=2 class="Formulario" width='90%'>
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	CampoEstaticoGenera("Título", $Titulo);
 	CampoEstaticoGenera("Clase", $ClaseDescripcion);
@@ -112,7 +114,7 @@
 ?>
 </table>
 
-<?
+<?php
 function MuestraRegistro($reg) {
 	global $Id;
 
@@ -143,8 +145,7 @@ function MuestraRegistro($reg) {
 <p>
 <h2>Categor&iacute;as</h2>
 
-<?		
-	
+<?php	
 		$titulos = array("Descripci&oacute;n", "Acci&oacute;n");
 
 		TablaInicio($titulos,"90%");
@@ -158,7 +159,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>

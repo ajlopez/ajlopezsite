@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Usuarios.inc.php');
 
 	AdministradorControla('');
 
@@ -68,7 +70,7 @@
 <a href="ArticuloActualiza.php?IdCategoria=$IdCategoria">Nuevo Art&iacute;culo...</a>
 <p>
 
-<?		
+<?php
 function MuestraRegistro($reg) {
 	FilaInicio();
 	DatoEnlaceGenera($reg["Titulo"], "Articulo.php?Id=".$reg["Id"]);
@@ -88,7 +90,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

@@ -1,5 +1,7 @@
-<?
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Usuarios.inc.php');
 
 	$PaginaTitulo = 'Sube Archivo';
 
@@ -16,6 +18,6 @@
 </form>
 </p>
 </center>
-<?
+<?php
 	include('Final.inc.php');
 ?>

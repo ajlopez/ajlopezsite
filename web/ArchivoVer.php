@@ -1,6 +1,8 @@
-<?
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 
@@ -16,16 +18,16 @@
 
 <center>
 <p>
-<a href='ArchivosDirectorio.php?dir=<? echo $dir; ?>&padre=<? echo $padre; ?>'>Directorio</a>
+<a href='ArchivosDirectorio.php?dir=<?php echo $dir; ?>&padre=<?php echo $padre; ?>'>Directorio</a>
 &nbsp;&nbsp;
-<a href='ArchivoEditar.php?archivo=<? echo $archivo; ?>&dir=<? echo $dir; ?>&padre=<? echo $padre; ?>'>Editar</a>
+<a href='ArchivoEditar.php?archivo=<?php echo $archivo; ?>&dir=<?php echo $dir; ?>&padre=<?php echo $padre; ?>'>Editar</a>
 </p>
 </center>
 
 <table>
 <tr>
 <td>
-<?
+<?php
 	$fp=fopen($archivo,"r"); 
 	echo "<xmp align=left>";
 	fpassthru($fp);
@@ -35,8 +37,7 @@
 </tr>
 </table>
 
-
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

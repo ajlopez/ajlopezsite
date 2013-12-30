@@ -1,8 +1,10 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Usuarios.inc.php');
 
 	$PaginaTitulo = "Artículos";
 
@@ -19,7 +21,7 @@
 		$PaginaTitulo = $CatDescripcion;
 	}
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -35,13 +37,11 @@ google_ad_height = 90;
 src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
 
-
-
 </center>
 
 <center>
 
-<?		
+<?php
 function MuestraRegistro($reg) {
 	FilaInicio();
 	DatoEnlaceGenera($reg["Codigo"], "ArticuloMuestra.php?Id=".$reg["Id"]);
@@ -59,9 +59,9 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?	
+<?php
 	mysql_free_result($rs);
-	require('Final.inc.php');
+	include('Final.inc.php');
 
 	Desconectar();
 ?>

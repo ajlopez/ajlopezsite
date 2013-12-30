@@ -1,17 +1,19 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
-	include('Categorias.inc.php');
-	include('Puntos.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Puntos.inc.php');
 
 	Conectar();
 
 	$PaginaTitulo = "Agrega Art&iacute;culo";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 
 	if ($IdCategoria)
 		CategoriaTraduce($IdCategoria,$CatDescripcion,$CatPadre);
@@ -25,34 +27,34 @@
 
 <p>
 
-<?
+<?php
 	if (UsuarioIdentificado()) {
 		echo UsuarioSexoSufijo("Estimad");
 		echo ' ';
 		echo UsuarioNombreCompleto();
 ?>
-: En <a href='<? echo PaginaPrincipal(); ?>'>todocontenidos</a> siempre buscamos nuevos contenidos para nuestro sitio.
+: En <a href='<?php echo PaginaPrincipal(); ?>'>todocontenidos</a> siempre buscamos nuevos contenidos para nuestro sitio.
 Gracias por colaborar agregando un art&iacute;culo. Por favor, ingrese los datos con precisi&oacute;n.
-En caso de aceptar su entrada, le acreditaremos <b><? echo PUNTOS_ARTICULO; ?> puntos</b> (sujeto a la aprobaci&oacute;n de los datos) en su cuenta de usuario, para que pueda aprovecharlos
+En caso de aceptar su entrada, le acreditaremos <b><?php echo PUNTOS_ARTICULO; ?> puntos</b> (sujeto a la aprobaci&oacute;n de los datos) en su cuenta de usuario, para que pueda aprovecharlos
 en nuestras ofertas.
 
 <p>
 Los campos marcados con <font color=red>*</font> son obligatorios
 <p>
 
-<?
+<?php
 	} else {
 ?>
-En <a href='<? echo PaginaPrincipal(); ?>'>todocontenidos</a> siempre buscamos nuevos contenidos para nuestro sitio.
+En <a href='<?php echo PaginaPrincipal(); ?>'>todocontenidos</a> siempre buscamos nuevos contenidos para nuestro sitio.
 Gracias por colaborar agregando un art&iacute;culo. Por favor, ingrese los datos con precisi&oacute;n.
-<?
+<?php
 	}
 ?>
 
 <form action="ArticuloSugiereGraba.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	if ($IdCategoria)
 		CampoEstaticoGenera("Tema", CategoriasEnlaces($IdCategoria,'Tema.php'));
 	else
@@ -66,12 +68,12 @@ Gracias por colaborar agregando un art&iacute;culo. Por favor, ingrese los datos
 ?>
 </table>
 
-<?
+<?php
 	if ($IdCategoria) {
 ?>
-<input type="hidden" name="IdCategoria" value="<? echo $IdCategoria; ?>">
+<input type="hidden" name="IdCategoria" value="<?php echo $IdCategoria; ?>">
 
-<?
+<?php
 	}
 ?>
 
@@ -79,11 +81,11 @@ Gracias por colaborar agregando un art&iacute;culo. Por favor, ingrese los datos
 
 </center>
 
-<?
+<?php
 	if ($rsCategorias)
 		mysql_free_result($rsCategorias);
 
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

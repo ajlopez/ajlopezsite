@@ -1,17 +1,18 @@
-<?
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+	include_once('Usuarios.inc.php');
 
 	AdministradorControla('');
 
-	include('Conexion.inc.php');
+	include_once('Conexion.inc.php');
 
 	Conectar();
 
-	include('Campos.inc.php');
+	include_once('Campos.inc.php');
 
 	$PaginaTitulo = "Administrador";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -19,7 +20,7 @@
 <p>
 <a href="Usuarios.php">Usuarios</a>
 <br>
-<a href="EjecutaSqlEx.php?Consulta=<? echo urlencode("select p.Descripcion, count(*) from usuarios u left join paises p on u.IdPais = p.Id group by p.Descripcion order by 2 desc"); ?>&Titulo=Usuarios+por+Pais">Usuarios por Pais</a>
+<a href="EjecutaSqlEx.php?Consulta=<?php echo urlencode("select p.Descripcion, count(*) from usuarios u left join paises p on u.IdPais = p.Id group by p.Descripcion order by 2 desc"); ?>&Titulo=Usuarios+por+Pais">Usuarios por Pais</a>
 <br>
 <a href="CursosCategorias.php">Categor&iacute;as de Cursos</a>
 <br>
@@ -49,13 +50,13 @@
 <br>
 <a href="Eventos.php?Tipo=RG">Registraciones</a>
 <br>
-<a href="EjecutaSqlEx.php?Consulta=<? echo urlencode("select * from contactos order by id desc"); ?>&Titulo=Contactos">Contactos</a>
+<a href="EjecutaSqlEx.php?Consulta=<?php echo urlencode("select * from contactos order by id desc"); ?>&Titulo=Contactos">Contactos</a>
 <br>
-<a href="EjecutaSqlEx.php?Consulta=<? echo urlencode("select * from usuarioscursos where Precio>0"); ?>&Titulo=Cursos+Pagos">Cursos Pagos</a>
+<a href="EjecutaSqlEx.php?Consulta=<?php echo urlencode("select * from usuarioscursos where Precio>0"); ?>&Titulo=Cursos+Pagos">Cursos Pagos</a>
 <br>
-<a href="EjecutaSqlEx.php?Consulta=<? echo urlencode("select * from pagos"); ?>&Titulo=Pagos">Pagos</a>
+<a href="EjecutaSqlEx.php?Consulta=<?php echo urlencode("select * from pagos"); ?>&Titulo=Pagos">Pagos</a>
 <br>
-<a href="EjecutaSqlEx.php?Consulta=<? echo urlencode("select Id, Codigo, Email, Comentarios from usuarios where Comentarios>'' order by Id desc"); ?>&Titulo=Comentarios">Comentarios</a>
+<a href="EjecutaSqlEx.php?Consulta=<?php echo urlencode("select Id, Codigo, Email, Comentarios from usuarios where Comentarios>'' order by Id desc"); ?>&Titulo=Comentarios">Comentarios</a>
 <br>
 <a href="RankingCategorias.php">Ranking de Categor&iacute;as</a>
 <br>
@@ -86,9 +87,9 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 
 
