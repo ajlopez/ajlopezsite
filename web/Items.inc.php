@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Items_inc == 1)
 	return;
 define ('__Items_inc', 1);

@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Formato_inc == 1)
 	return;
 define ('__Formato_inc', 1);

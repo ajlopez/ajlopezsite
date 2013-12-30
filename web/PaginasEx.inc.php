@@ -1,4 +1,4 @@
-<?
+<?php
 if (__PaginasEx_inc == 1)
 	return;
 define ('__PaginasEx_inc', 1);

@@ -1,9 +1,9 @@
-<?
+<?php
 if (__Cursos_inc == 1)
 	return;
 define ('__Cursos_inc', 1);
 
-	include('Usuarios.inc.php');
+	include_once('Usuarios.inc.php');
 
 	define('CURSOS_ESTADO_NORMAL',0);
 	define('CURSOS_ESTADO_DESHABILITADO',1);

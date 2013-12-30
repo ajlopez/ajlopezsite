@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Lecciones_inc == 1)
 	return;
 define ('__Lecciones_inc', 1);

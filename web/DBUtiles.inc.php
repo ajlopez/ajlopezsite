@@ -1,5 +1,5 @@
-<?
-	include('Campos.inc.php');
+<?php
+	include_once('Campos.inc.php');
 
 function TablaMuestra($result, $link="") {
 
@@ -31,7 +31,7 @@ function TablaMuestra($result, $link="") {
    </TBODY>
 </TABLE>
 
-<?
+<?php
 }
 
 function RegistroMuestra($result) {
@@ -40,19 +40,19 @@ function RegistroMuestra($result) {
 <table>
 <tbody>
 
-<?
+<?php
 	for ($i = 0; $i < mysql_num_fields($result); $i++) {
 ?>
 <tr>
-<td><? echo mysql_field_name($result, $i) ?></td>
-<td><? echo mysql_result($result,0, $i) ?></td>
+<td><?php echo mysql_field_name($result, $i) ?></td>
+<td><?php echo mysql_result($result,0, $i) ?></td>
 </tr>
-<?
+<?php
 	}
 ?>
 
 </tbody>
 </table>
-<?
+<?php
 }
 ?>

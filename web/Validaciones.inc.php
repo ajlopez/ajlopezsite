@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Validaciones_inc == 1)
 	return;
 define ('__Validaciones_inc', 1);

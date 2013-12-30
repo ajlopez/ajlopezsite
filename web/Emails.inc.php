@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Emails_inc == 1)
 	return;
 define ('__Emails_inc', 1);

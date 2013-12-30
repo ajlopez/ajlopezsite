@@ -1,4 +1,4 @@
-<?
+<?php
 if (__Referencias_inc == 1)
 	return;
 define ('__Referencias_inc', 1);
