@@ -1,7 +1,9 @@
-<?
-	include('Paginas.inc.php');
-	include('Items.inc.php');
-	include('Conexion.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Paginas.inc.php');
+	include_once('Items.inc.php');
+	include_once('Conexion.inc.php');
 ?>
 
 <html>
@@ -16,7 +18,7 @@
 <tr height=60>
 <td class="TituloSitio">
 <!-- &nbsp;todocontenidos.com -->
-<a href="<? echo PaginaPrincipal(); ?>" target="_top"><img src="images/ajlopez2.gif" border=0></a></td>
+<a href="<?php echo PaginaPrincipal(); ?>" target="_top"><img src="images/ajlopez2.gif" border=0></a></td>
 
 <td align="center">
 <p>
@@ -54,7 +56,7 @@
 </tr>
 </table>
 
-<?
+<?php
 	Conectar();
 
 	$rsItem = mysql_query("select Visitas, Url, Votos1, Votos2, Votos3, Votos4, Votos5 from items where Id = $Id");
@@ -67,43 +69,43 @@
 
 <table width=100% bgcolor=black cellspacing=1 cellpadding=0>
 <tr>
-<?
+<?php
 	if (!$Votado) {
 ?>
 <td bgcolor="#e71212" align=left>
 <font class=headerU><b>&nbsp;&nbsp;Vote 
-&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<? echo $Id ?>&Voto=1">1=Malo</a>
-&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<? echo $Id ?>&Voto=2">2=Regular</a>
-&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<? echo $Id ?>&Voto=3">3=Bueno</a>
-&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<? echo $Id ?>&Voto=4">4=Muy Bueno</a>
-&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<? echo $Id ?>&Voto=5">5=Excelente</a>
+&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<?php echo $Id ?>&Voto=1">1=Malo</a>
+&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<?php echo $Id ?>&Voto=2">2=Regular</a>
+&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<?php echo $Id ?>&Voto=3">3=Bueno</a>
+&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<?php echo $Id ?>&Voto=4">4=Muy Bueno</a>
+&nbsp;&nbsp;<a class=headerU href="ItemVoto.php?Id=<?php echo $Id ?>&Voto=5">5=Excelente</a>
 </b>
 </font>
 </td>
-<?
+<?php
 	}
 	else {
 		$Promedio=ItemPromedio($Votos1,$Votos2,$Votos3,$Votos4,$Votos5);
 ?>
 <td bgcolor="#e71212" align=left>
 <font class=headerU><b>&nbsp;&nbsp;
-<? echo $Visitas; ?> Visitas
+<?php echo $Visitas; ?> Visitas
 </b>
 </font>
 </td>
 <td bgcolor="#e71212" align=left>
 <font class=headerU><b>&nbsp;&nbsp;
-Voto Promedio <? echo $Promedio; ?>
+Voto Promedio <?php echo $Promedio; ?>
 </b>
 </font>
 </td>
-<?
+<?php
 	}
 ?>
 
 <td bgcolor="#e71212" align=center>
 <font class=headerU><b>
-<a class=headerU href="<? echo $Url; ?>" target="_top">Quitar Marco</a>
+<a class=headerU href="<?php echo $Url; ?>" target="_top">Quitar Marco</a>
 </b>
 </font>
 </td>
@@ -116,6 +118,6 @@ Voto Promedio <? echo $Promedio; ?>
 
 </html>
 
-<?
+<?php
 	Desconectar();
 ?>

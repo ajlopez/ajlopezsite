@@ -1,10 +1,12 @@
-<?
-	include('Usuarios.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Cursos.inc.php');
-	include('Lecciones.inc.php');
-	include('Eventos.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Usuarios.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Lecciones.inc.php');
+	include_once('Eventos.inc.php');
 
 	Conectar();
 
@@ -49,34 +51,34 @@
 ?>
 
 <center>
-<h1><? echo $CursoDescripcion; ?></h1>
+<h1><?php echo $CursoDescripcion; ?></h1>
 <p>
 <a href="UsuarioCursos.php">Mis Cursos</a>
 &nbsp;&nbsp;
-<a href="CursoMuestra.php?Id=<? echo $leccion->IdCurso; ?>">Este Curso</a>
+<a href="CursoMuestra.php?Id=<?php echo $leccion->IdCurso; ?>">Este Curso</a>
 &nbsp;&nbsp;
-<a href="CursoLecciones.php?Id=<? echo $leccion->IdCurso; ?>">Lecciones</a>
+<a href="CursoLecciones.php?Id=<?php echo $leccion->IdCurso; ?>">Lecciones</a>
 &nbsp;&nbsp;
-<?
+<?php
 	if ($leccion->IdAnterior) {
 ?>
-<a href="CursoLeccion.php?Id=<? echo $leccion->IdAnterior; ?>">Anterior</a>
+<a href="CursoLeccion.php?Id=<?php echo $leccion->IdAnterior; ?>">Anterior</a>
 &nbsp;&nbsp;
-<?
+<?php
 	}
 ?>
-<?
+<?php
 	if ($leccion->IdSiguiente) {
 ?>
-<a href="CursoLeccion.php?Id=<? echo $leccion->IdSiguiente; ?>">Siguiente</a>
+<a href="CursoLeccion.php?Id=<?php echo $leccion->IdSiguiente; ?>">Siguiente</a>
 &nbsp;&nbsp;
-<?
+<?php
 	}
 ?>
 </p>
 </center>
 
-<?
+<?php
 	ProcesaArchivo($file);
 
 	fclose($file);
@@ -87,31 +89,31 @@
 <p>
 <a href="UsuarioCursos.php">Mis Cursos</a>
 &nbsp;&nbsp;
-<a href="CursoMuestra.php?Id=<? echo $leccion->IdCurso; ?>">Este Curso</a>
+<a href="CursoMuestra.php?Id=<?php echo $leccion->IdCurso; ?>">Este Curso</a>
 &nbsp;&nbsp;
-<a href="CursoLecciones.php?Id=<? echo $leccion->IdCurso; ?>">Lecciones</a>
+<a href="CursoLecciones.php?Id=<?php echo $leccion->IdCurso; ?>">Lecciones</a>
 &nbsp;&nbsp;
-<?
+<?php
 	if ($leccion->IdAnterior) {
 ?>
-<a href="CursoLeccion.php?Id=<? echo $leccion->IdAnterior; ?>">Anterior</a>
+<a href="CursoLeccion.php?Id=<?php echo $leccion->IdAnterior; ?>">Anterior</a>
 &nbsp;&nbsp;
-<?
+<?php
 	}
 ?>
-<?
+<?php
 	if ($leccion->IdSiguiente) {
 ?>
-<a href="CursoLeccion.php?Id=<? echo $leccion->IdSiguiente; ?>">Siguiente</a>
+<a href="CursoLeccion.php?Id=<?php echo $leccion->IdSiguiente; ?>">Siguiente</a>
 &nbsp;&nbsp;
-<?
+<?php
 	}
 ?>
 </p>
 </center>
 
 
-<?
+<?php
 	include('Final.inc.php');
 	Desconectar();
 ?>

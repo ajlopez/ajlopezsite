@@ -1,12 +1,14 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Cursos.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Usuarios.inc.php');
 
 	Conectar();
 
@@ -36,7 +38,7 @@
 
 	$UsuarioId = UsuarioId();
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -50,7 +52,7 @@
 <a href="CursosMuestra.php">Gu&iacute;a de Cursos</a>
 &nbsp;
 &nbsp;
-<a href="CursoMuestra.php?Id=<? echo $Id; ?>">Detalle del Curso</a>
+<a href="CursoMuestra.php?Id=<?php echo $Id; ?>">Detalle del Curso</a>
 </p>
 
 <h2>En Argentina, respetamos UN PESO = UN DOLAR</h2>
@@ -71,7 +73,7 @@ Agradecemos a todos los usuarios inscriptos, la confianza depositada en nosotros
 
 <p>
 
-<?
+<?php
 function ParrafoGenera($titulo,$texto) {
 	echo "<h2 align=left>$titulo</h2>\n";
 	echo "<p align=left>\n$texto\n</p>\n";
@@ -83,7 +85,7 @@ function ParrafoGenera($titulo,$texto) {
 <h2>Datos de su Pago</h2>
 
 <p>
-<?
+<?php
 	echo UsuarioSexoSufijo("Estimad");
 	echo ' ';
 	echo UsuarioNombreCompleto();
@@ -91,20 +93,20 @@ function ParrafoGenera($titulo,$texto) {
 : puede ingresar los datos de su pago.
 </p>
 
-<?
+<?php
 	if ($ImportePrecio>0) {
 ?>
 
 <p>
-El precio de su curso es <b>u$s <? echo $PrecioCurso; ?> (d&oacute;lares americanos)</b> o su equivalente en moneda local. Elija su
+El precio de su curso es <b>u$s <?php echo $PrecioCurso; ?> (d&oacute;lares americanos)</b> o su equivalente en moneda local. Elija su
 forma de pago:
 </p>
-<?
+<?php
 	if (UsuarioEsArgentino()) {
 ?>
 
 <p>
-<a href="CursoPagoTransferencia.php?Id=<? echo $Id; ?>">Transferencia Bancaria</a>
+<a href="CursoPagoTransferencia.php?Id=<?php echo $Id; ?>">Transferencia Bancaria</a>
 <br>
 Enviar al CBU (Banco Galicia)
 <br>
@@ -118,7 +120,7 @@ Tipo de cuenta <b>Caja de Ahorro en Pesos</b>
 </p>
 
 <p>
-<a href="CursoPagoDeposito.php?Id=<? echo $Id; ?>">Dep&oacute;sito Bancario</a>
+<a href="CursoPagoDeposito.php?Id=<?php echo $Id; ?>">Dep&oacute;sito Bancario</a>
 <br>
 En sucursal de Banco Galicia, en cuenta caja de ahorro en pesos
 <br>
@@ -128,7 +130,7 @@ Titular <b>Angel J Lopez</b>
 </p>
 
 <p>
-<a href="CursoPagoGiroPostal.php?Id=<? echo $Id; ?>">Giro Postal</a>
+<a href="CursoPagoGiroPostal.php?Id=<?php echo $Id; ?>">Giro Postal</a>
 <br>
 A nombre de 
 <br>
@@ -146,7 +148,7 @@ Argentina
 </p>
 
 <p>
-<a href="CursoPagoCheque.php?Id=<? echo $Id; ?>">Cheque</a>
+<a href="CursoPagoCheque.php?Id=<?php echo $Id; ?>">Cheque</a>
 <br>
 A nombre de 
 <br>
@@ -164,7 +166,7 @@ Argentina
 </p>
 
 <p>
-<a href="CursoPagoWestern.php?Id=<? echo $Id; ?>">Western Union</a>
+<a href="CursoPagoWestern.php?Id=<?php echo $Id; ?>">Western Union</a>
 <br>
 Enviar a
 <br>
@@ -184,7 +186,7 @@ Recuerde obtener su Money Transfer Control Number
 	else {
 ?>
 <p>
-<a href="CursoPagoWestern.php?Id=<? echo $Id; ?>">Western Union</a>
+<a href="CursoPagoWestern.php?Id=<?php echo $Id; ?>">Western Union</a>
 <br>
 Enviar a
 <br>
@@ -198,7 +200,7 @@ Pais <b>Argentina</b>
 <br>
 Recuerde ingresar su Money Transfer Control Number
 </p>
-<?
+<?php
 	}
 ?>
 
@@ -206,15 +208,15 @@ Recuerde ingresar su Money Transfer Control Number
 Una vez hayamos confirmado los datos del pago, quedar&aacute; habilitado para ingresar al curso.
 </p>
 
-<?
+<?php
 	}
 	else {
 ?>
 <p>
-El curso es completamente gratuito. Puede <a href="CursoIngreso.php?Id=<? echo $Id; ?>">ingresar</a> al mismo.
+El curso es completamente gratuito. Puede <a href="CursoIngreso.php?Id=<?php echo $Id; ?>">ingresar</a> al mismo.
 </p>
 
-<?
+<?php
 	}
 ?>
 
@@ -222,8 +224,8 @@ El curso es completamente gratuito. Puede <a href="CursoIngreso.php?Id=<? echo $
 <p>
 </p>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

@@ -1,13 +1,15 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Cursos.inc.php');
-	include('Usuarios.inc.php');
-	include('Puntos.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Puntos.inc.php');
 
 	Conectar();
 
@@ -55,7 +57,7 @@
 	if ($PuntosAplica)
 		PuntosCurso($PuntosAplica);
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -63,10 +65,10 @@
 <p>
 
 <p>
-<a href="CursosMuestra.php?IdCategoria=<? echo $IdCategoria; ?>">Otros Cursos</a>
+<a href="CursosMuestra.php?IdCategoria=<?php echo $IdCategoria; ?>">Otros Cursos</a>
 &nbsp;
 &nbsp;
-<a href="CursoMuestra.php?Id=<? echo $Id; ?>">Detalle del Curso</a>
+<a href="CursoMuestra.php?Id=<?php echo $Id; ?>">Detalle del Curso</a>
 </p>
 
 <h2>En Argentina, respetamos UN PESO = UN DOLAR</h2>
@@ -86,7 +88,7 @@ Agradecemos a todos los usuarios inscriptos, la confianza depositada en nosotros
 
 <p>
 
-<?
+<?php
 function ParrafoGenera($titulo,$texto) {
 	echo "<h2 align=left>$titulo</h2>\n";
 	echo "<p align=left>\n$texto\n</p>\n";
@@ -98,7 +100,7 @@ function ParrafoGenera($titulo,$texto) {
 <h2>Inscripci&oacute;n Realizada</h2>
 
 <p>
-<?
+<?php
 	echo UsuarioSexoSufijo("Estimad");
 	echo ' ';
 	echo UsuarioNombreCompleto();
@@ -107,15 +109,15 @@ function ParrafoGenera($titulo,$texto) {
 Cualquier duda o comentario, no dude en <a href="Contacto.php">contactarnos</a>.
 </p>
 
-<?
+<?php
 	if ($ImportePrecio>0) {
 ?>
 
 <p>
-El precio del curso es <b>$ <? echo $PrecioFinal; ?> usd (d&oacute;lares americanos)</b> o su equivalente en moneda local. Puede pagarlo
+El precio del curso es <b>$ <?php echo $PrecioFinal; ?> usd (d&oacute;lares americanos)</b> o su equivalente en moneda local. Puede pagarlo
 de las siguientes formas:
 </p>
-<?
+<?php
 	if (UsuarioEsArgentino()) {
 ?>
 
@@ -144,42 +146,6 @@ Titular <b>Angel J Lopez</b>
 </p>
 
 <p>
-<b>Giro Postal</b>
-<br>
-A nombre de 
-<br>
-<b>Carolina Lucia Hauscarriaga</b>
-<br>
-Enviar a
-<br>
-<b>
-Casilla de Correo 97
-<br>
-(1878) Quilmes
-<br>
-Argentina
-</b>
-</p>
-
-<p>
-<b>Cheque</b>
-<br>
-A nombre de 
-<br>
-<b>Angel J. Lopez</b>
-<br>
-Enviar a
-<br>
-<b>
-Casilla de Correo 97
-<br>
-(1878) Quilmes
-<br>
-Argentina
-</b>
-</p>
-
-<p>
 <b>Transferencia Western Union</b>
 <br>
 Enviar a
@@ -213,7 +179,7 @@ Pais <b>Argentina</b>
 <br>
 Recuerde obtener su Money Transfer Control Number
 </p>
-<?
+<?php
 	}
 ?>
 
@@ -222,7 +188,7 @@ Una vez efectuado el pago, ingrese como usuario al sitio, y, desde su <a href="U
 complete los datos del mismo.
 </p>
 
-<?
+<?php
 	}
 	else {
 ?>
@@ -230,7 +196,7 @@ complete los datos del mismo.
 El curso es completamente gratuito.
 </p>
 
-<?
+<?php
 	}
 ?>
 
@@ -238,8 +204,8 @@ El curso es completamente gratuito.
 <p>
 </p>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

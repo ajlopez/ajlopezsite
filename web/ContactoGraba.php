@@ -1,9 +1,11 @@
-<?
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Sesion.inc.php');
-	include('Usuarios.inc.php');
-	include('Validaciones.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Validaciones.inc.php');
 
 	$PaginaTitulo = "Cont&aacute;ctenos";
 
@@ -65,15 +67,15 @@ function SendMail($FROM,$TO,$SUBJECT,$MESSAGE,$REPLYTO='',$TYPE='')
 
 	$Id = mysql_insert_id();
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <p>
 Su consulta ha sido registrada. Le contestaremos a la brevedad.
 </p>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

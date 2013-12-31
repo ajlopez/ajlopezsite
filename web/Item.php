@@ -1,13 +1,15 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Categorias.inc.php');
-	include('Traduccion.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Traduccion.inc.php');
+	include_once('Usuarios.inc.php');
 
 	Conectar();
 	
@@ -31,7 +33,7 @@
 	$IdiomaDescripcion = TraduceIdioma($IdIdioma);
 	$SitioDescripcion = TraduceSitio($IdSitio);
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -40,42 +42,42 @@
 <a href="Items.php">Items</a>
 &nbsp;
 &nbsp;
-<a href="ItemVe.php?Id=<? echo $Id; ?>">Muestra</a>
+<a href="ItemVe.php?Id=<?php echo $Id; ?>">Muestra</a>
 &nbsp;
 &nbsp;
-<a href="en/Item.php?Id=<? echo $Id; ?>">Show</a>
+<a href="en/Item.php?Id=<?php echo $Id; ?>">Show</a>
 &nbsp;
 &nbsp;
-<a href="ItemActualiza.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="ItemActualiza.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="ItemElimina.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="ItemElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaSelecciona.php?IdItem=<? echo $Id; ?>">Agrega a Categor&iacute;a</a>
+<a href="CategoriaSelecciona.php?IdItem=<?php echo $Id; ?>">Agrega a Categor&iacute;a</a>
 &nbsp;
 &nbsp;
-<a href="ReferenciaActualiza.php?IdItem=<? echo $Id; ?>&Titulo=<? echo $Descripcion; ?>">Arma Referencia</a>
+<a href="ReferenciaActualiza.php?IdItem=<?php echo $Id; ?>&Titulo=<?php echo $Descripcion; ?>">Arma Referencia</a>
 <br>
-<?
+<?php
 	if ($Estado) {
 ?>
-<a href="ItemEstadoCambia.php?Id=<? echo $Id; ?>&Estado=0">Pasa a Normal</a>
-<?
+<a href="ItemEstadoCambia.php?Id=<?php echo $Id; ?>&Estado=0">Pasa a Normal</a>
+<?php
 	} else {
 ?>
-<a href="ItemEstadoCambia.php?Id=<? echo $Id; ?>&Estado=1">Pasa a Pendiente</a>
-<?
+<a href="ItemEstadoCambia.php?Id=<?php echo $Id; ?>&Estado=1">Pasa a Pendiente</a>
+<?php
 	}
 ?>
 &nbsp;
 &nbsp;
-<a href="Eventos.php?Tipo=IT&IdParametro=<? echo $Id; ?>">Visitas</a>
+<a href="Eventos.php?Tipo=IT&IdParametro=<?php echo $Id; ?>">Visitas</a>
 </p>
 <p>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	CampoEstaticoGenera("Descripci&oacute;n",$Descripcion);
 	CampoEstaticoGenera("Clase", $ClaseDescripcion);
@@ -100,7 +102,7 @@
 ?>
 </table>
 
-<?
+<?php
 function MuestraRegistro($reg) {
 	global $Id;
 
@@ -131,7 +133,7 @@ function MuestraRegistro($reg) {
 <p>
 <h2>Categor&iacute;as</h2>
 
-<?		
+<?php	
 	
 		$titulos = array("Descripci&oacute;n", "Acci&oacute;n");
 
@@ -146,8 +148,8 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

@@ -1,10 +1,12 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
-	include('Categorias.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Categorias.inc.php');
 
 	Conectar();
 	
@@ -33,36 +35,36 @@
 		$EsNuevo = 1;
 	}
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
 
-<?
+<?php
 	$Enlaces = CategoriasEnlaces($IdPadre);
 
 	if ($Enlaces) {
 ?>
 <p>
-<? echo $Enlaces; ?>
+<?php echo $Enlaces; ?>
 </p>
-<?
+<?php
 	}
 ?>
 
 <p>
 <a href="Categorias.php">Categor&iacute;as</a>
 
-<?
+<?php
 	if (!$EsNuevo) {
 ?>
 &nbsp;
 &nbsp;
-<a href="Categoria.php?Id=<? echo $Id; ?>">Categor&iacute;a</a>
+<a href="Categoria.php?Id=<?php echo $Id; ?>">Categor&iacute;a</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="CategoriaElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -72,7 +74,7 @@
 <form action="CategoriaGraba.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	if (!$EsNuevo)
 		CampoEstaticoGenera("Id",$Id);
 	CampoTextoGenera("Descripcion","Descripci&oacute;n",$Descripcion,50);
@@ -88,8 +90,8 @@
 ?>
 </table>
 
-<input type="hidden" name="IdPadre" value="<? echo $IdPadre; ?>">
-<?
+<input type="hidden" name="IdPadre" value="<?php echo $IdPadre; ?>">
+<?php
 	if (!$EsNuevo)
 		IdGenera($Id);
 ?>
@@ -97,8 +99,8 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

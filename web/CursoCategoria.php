@@ -1,10 +1,12 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
 
 	Conectar();
 	
@@ -21,7 +23,7 @@
 	mysql_free_result($res);
 	$PaginaTitulo = "Categor&iacute;a de Curso: $Descripcion";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -32,15 +34,15 @@
 <a href="CursosCategorias.php">Categor&iacute;as</a>
 &nbsp;
 &nbsp;
-<a href="CursoCategoriaActualiza.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="CursoCategoriaActualiza.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="CursoCategoriaElimina.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="CursoCategoriaElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
 </p>
 <p>
 
 <table class="Formulario" width="80%">
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	CampoEstaticoGenera("Descripci&oacute;n",$Descripcion);
 	CampoEstaticoGenera("Detalle",NormalizaHtml($Detalle));
@@ -50,8 +52,8 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

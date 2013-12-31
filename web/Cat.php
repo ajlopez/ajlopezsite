@@ -1,9 +1,11 @@
-<?
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
-	include('Categorias.inc.php');
-	include('Utiles.inc.php');
-	include('Eventos.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Eventos.inc.php');
 
 	if (!$Id)
 		PaginaRedireccionar(PaginaPrincipal());
@@ -40,11 +42,11 @@
 <center>
 
 <p>
-<a href="ItemActualiza.php?IdCategoria=<? echo $Id; ?>">Agregar Enlace en esta Categor&iacute;a</a>
+<a href="ItemActualiza.php?IdCategoria=<?php echo $Id; ?>">Agregar Enlace en esta Categor&iacute;a</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaActualiza.php?IdPadre=<? echo $Id; ?>">Sugerir Subcategor&iacute;a</a>
-<?
+<a href="CategoriaActualiza.php?IdPadre=<?php echo $Id; ?>">Sugerir Subcategor&iacute;a</a>
+<?php
 	if (EsAdministrador()) {
 		echo "&nbsp;&nbsp;";
 		echo "<a href='Categoria.php?Id=$Id'>Administra</a>";
@@ -53,7 +55,7 @@
 </p>
 <p>
 <a href="default.php">Categor&iacute;as</a>
-<?
+<?php
 	if ($IdPadre) {
 		echo "&nbsp;->&nbsp;";
 		echo CategoriasEnlaces($IdPadre,'Cat.php');
@@ -63,7 +65,7 @@
 
 <table width="100%" border=0 cellspacing=0 cellpadding=3>
 
-<?
+<?php
 function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 {
 	$pos = $x + $y;
@@ -102,7 +104,7 @@ function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 
 </table>
 
-<?
+<?php
 function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 {
 	if (!strpos($Url,":/"))
@@ -110,18 +112,18 @@ function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 ?>
 <tr>
 <td class=item valign=top>
-<a class=item target='_blank' href="<? echo $Url; ?>">
-<? echo $Descripcion; ?>
+<a class=item target='_blank' href="<?php echo $Url; ?>">
+<?php echo $Descripcion; ?>
 </a>
 <br>
-<? echo NormalizaHtml($Detalle); ?>
+<?php echo NormalizaHtml($Detalle); ?>
 </td>
 </tr>
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 	$sql = "Select i.* from categoriasitems ci left join items i on ci.IdItem = i.Id where ci.IdCategoria = $Id";
 	$rsItems = mysql_query($sql);
 
@@ -130,31 +132,31 @@ function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 
 	if ($rsItems && mysql_num_rows($rsItems)) {
 ?>
-<h2><? echo $Descripcion; ?> en Internet</h2>
+<h2><?php echo $Descripcion; ?> en Internet</h2>
 <table width="100%" cellspacing=0 cellpadding=3>
-<?
+<?php
 		while ($reg=mysql_fetch_object($rsItems))
 			ItemMuestra($reg->Id, $reg->Descripcion, $reg->Detalle, $reg->Url);
 ?>
 </table>
-<?		
+<?php	
 	}
 ?>
 
 
-<?
+<?php
 function ArticuloMuestra($Id,$Titulo,$Resumen) {
 ?>
 <tr>
 <td class=item valign=top>
-<a class=item href="ArticuloMuestra.php?Id=<? echo $Id; ?>">
-<? echo $Titulo; ?>
+<a class=item href="ArticuloMuestra.php?Id=<?php echo $Id; ?>">
+<?php echo $Titulo; ?>
 </a>
 <br>
-<? echo NormalizaHtml($Resumen); ?>
+<?php echo NormalizaHtml($Resumen); ?>
 </td>
 </tr>
-<?
+<?php
 }
 	$rsArticulos=mysql_query("select a.Id, a.Titulo, a.Resumen from categoriasarticulos ca, articulos a where ca.IdArticulo = a.Id and ca.IdCategoria=$Id order by a.Titulo");
 	if ($rsArticulos && mysql_num_rows($rsArticulos)) {
@@ -163,13 +165,13 @@ function ArticuloMuestra($Id,$Titulo,$Resumen) {
 <p>
 <h2>Art&iacute;culos</h2>
 <table width="100%" cellspacing=0 cellpadding=3>
-<?
+<?php
 		while ($reg=mysql_fetch_object($rsArticulos))
 			ArticuloMuestra($reg->Id, $reg->Titulo, $reg->Resumen);
 ?>
 </table>
 
-<?		
+<?php	
 	}	
 
 	mysql_free_result($rsArticulos);
@@ -178,7 +180,7 @@ function ArticuloMuestra($Id,$Titulo,$Resumen) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 
 	include('Final.inc.php');

@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+    
 	include_once('GetParameters.inc.php');
 	include_once($PaginaPrefijo.'Campos.inc.php');
 	include_once($PaginaPrefijo.'Conexion.inc.php');
@@ -38,7 +40,7 @@
 
 	$PaginaTitulo = $Titulo;
 
-	require($PaginaPrefijo.'Inicio.inc.php');
+	include($PaginaPrefijo.'Inicio.inc.php');
 
 	if (EsAdministrador()) {
 		echo "<center><p><a href='${PaginaPrefijo}Pagina.php?Id=$Id'>Administra</a></p></center>";
@@ -60,7 +62,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 
 </center>
-<?
+<?php
 
 	if ($Contenido) {
 		if ($EsHTML)
@@ -73,8 +75,8 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	}
 ?>
 
-<?
+<?php
 	Desconectar();
-	require($PaginaPrefijo.'Final.inc.php');
+	include($PaginaPrefijo.'Final.inc.php');
 ?>
 

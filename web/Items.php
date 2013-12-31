@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Usuarios.inc.php');
 
 	$PaginaTitulo = "Items";
 
@@ -31,7 +33,7 @@
 <a href="ItemActualiza.php?IdCategoria=$IdCategoria">Nuevo Item...</a>
 <p>
 
-<?		
+<?php
 function MuestraRegistro($reg) {
 	FilaInicio();
 	$Descripcion = $reg["Descripcion"];
@@ -55,7 +57,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

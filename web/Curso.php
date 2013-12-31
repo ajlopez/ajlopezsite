@@ -1,12 +1,14 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Cursos.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Usuarios.inc.php');
 
 	AdministradorControla();
 
@@ -29,7 +31,7 @@
 
 	$PaginaTitulo = "Curso: $Descripcion";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -40,36 +42,36 @@
 <a href="Cursos.php">Cursos</a>
 &nbsp;
 &nbsp;
-<a href="CursoActualiza.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="CursoActualiza.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="CursoMuestra.php?Id=<? echo $Id; ?>">Muestra</a>
-<?
+<a href="CursoMuestra.php?Id=<?php echo $Id; ?>">Muestra</a>
+<?php
 	if ($Estado) {
 ?>
 &nbsp;
 &nbsp;
-<a href="CursoCambiaEstado.php?Id=<? echo $Id; ?>&Estado=0">Habilita</a>
-<?
+<a href="CursoCambiaEstado.php?Id=<?php echo $Id; ?>&Estado=0">Habilita</a>
+<?php
 	} else {
 ?>
 &nbsp;
 &nbsp;
-<a href="CursoCambiaEstado.php?Id=<? echo $Id; ?>&Estado=1">Deshabilita</a>
-<?
+<a href="CursoCambiaEstado.php?Id=<?php echo $Id; ?>&Estado=1">Deshabilita</a>
+<?php
 	}
 ?>
 &nbsp;
 &nbsp;
-<a href="CursoElimina.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="CursoElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
 &nbsp;
 &nbsp;
-<a href="Lecciones.php?IdCurso=<? echo $Id; ?>">Lecciones</a>
+<a href="Lecciones.php?IdCurso=<?php echo $Id; ?>">Lecciones</a>
 </p>
 <p>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	CampoEstaticoGenera("Descripci&oacute;n",$Descripcion);
 	CampoEstaticoGenera("Categor&iacute;a", $CatDescripcion);
@@ -96,8 +98,8 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

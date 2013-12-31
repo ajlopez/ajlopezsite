@@ -1,8 +1,10 @@
-<?
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
-	include('Categorias.inc.php');
-	include('Utiles.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Utiles.inc.php');
 
 	Conectar();
 
@@ -31,7 +33,7 @@
 
 <center>
 
-<?
+<?php
 	if ($IdCategoria) {
 ?>
 <p>
@@ -39,26 +41,26 @@
 </p>
 <p>
 <a href="CategoriaSeleccionaRef.php?<? echo $Subparametros ?>">Categor&iacute;as</a>
-<?
+<?php
 	if ($IdPadre) {
 		echo "&nbsp;->&nbsp;";
 		echo CategoriasEnlaces($IdPadre,"CategoriaSeleccionaRef.php?$Subparametros","IdCategoria");
 	}
 ?>
 </p>
-<?
+<?php
 	}
 	else {
 ?>
 <p>
 <a href="CategoriaRefGraba.php?<? echo $Parametros; ?>">Sin Referencia</a>
 </p>
-<?
+<?php
 	}
 ?>
 <table width="100%" border=0 cellspacing=0 cellpadding=3>
 
-<?
+<?php
 function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 {
 	global $Subparametros;
@@ -102,7 +104,7 @@ function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 
 </center>
 
-<?
+<?php
 	Desconectar();
 
 	include('Final.inc.php');

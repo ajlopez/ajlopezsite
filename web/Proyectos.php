@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+    
 	$Alias='proyectos';
-	require('PaginaMuestra.php');
+	include('PaginaMuestra.php');
 ?>

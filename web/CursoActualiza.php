@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	AdministradorControla();
 
@@ -51,19 +53,19 @@
 <p>
 <a href="Cursos.php">Cursos</a>
 
-<?
+<?php
 	if (!$EsNuevo) {
 ?>
 &nbsp;
 &nbsp;
-<a href="Curso.php?Id=<? echo $Id; ?>">Curso</a>
+<a href="Curso.php?Id=<?php echo $Id; ?>">Curso</a>
 &nbsp;
 &nbsp;
-<a href="CursoMuestra.php?Id=<? echo $Id; ?>">Muestra</a>
+<a href="CursoMuestra.php?Id=<?php echo $Id; ?>">Muestra</a>
 &nbsp;
 &nbsp;
-<a href="CursoElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="CursoElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -73,7 +75,7 @@
 <form action="CursoGraba.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	if (!$EsNuevo)
 		CampoEstaticoGenera("Id",$Id);
 	CampoTextoGenera("Codigo","C&oacute;digo",$Codigo,16);
@@ -100,7 +102,7 @@
 ?>
 </table>
 
-<?
+<?php
 	if (!$EsNuevo)
 		IdGenera($Id);
 ?>
@@ -108,7 +110,7 @@
 
 </center>
 
-<?
+<?php
 	mysql_free_result($rsCategorias);
 	Desconectar();
 	require('Final.inc.php');

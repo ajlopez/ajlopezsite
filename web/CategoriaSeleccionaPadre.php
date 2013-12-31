@@ -1,8 +1,10 @@
-<?
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
-	include('Categorias.inc.php');
-	include('Utiles.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Utiles.inc.php');
 
 	Conectar();
 
@@ -31,28 +33,28 @@
 
 <center>
 
-<?
+<?php
 	if ($IdCategoria) {
 ?>
 <p>
-<a href="CategoriaPadreGraba.php?<? echo $Parametros; ?>">Selecciona esta Categor&iacute;a</a>
+<a href="CategoriaPadreGraba.php?<?php echo $Parametros; ?>">Selecciona esta Categor&iacute;a</a>
 </p>
 <p>
-<a href="CategoriaSeleccionaPadre.php?<? echo $Subparametros ?>">Categor&iacute;as</a>
-<?
+<a href="CategoriaSeleccionaPadre.php?<?php echo $Subparametros ?>">Categor&iacute;as</a>
+<?php
 	if ($IdPadre) {
 		echo "&nbsp;->&nbsp;";
 		echo CategoriasEnlaces($IdPadre,"CategoriaSeleccionaPadre.php?$Subparametros","IdCategoria");
 	}
 ?>
 </p>
-<?
+<?php
 	}
 ?>
 
 <table width="100%" cellspacing=1 cellpadding=2 bgcolor=black>
 
-<?
+<?php
 function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 {
 	global $Subparametros;
@@ -96,7 +98,7 @@ function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 
 </center>
 
-<?
+<?php
 	Desconectar();
 
 	include('Final.inc.php');

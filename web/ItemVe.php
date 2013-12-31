@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+    
 	include_once('GetParameters.inc.php');
 	include_once('Campos.inc.php');
 	include_once('Conexion.inc.php');
@@ -39,7 +41,7 @@
 </noframes>
 </HTML>
 
-<?
+<?php
 	if (UsuarioIdentificado()) {
 		$rsVisitas = mysql_query("select * from eventos where Tipo = 'IT' and IdUsuario = " . UsuarioId() . " and IdParametro = $Id and FechaHora >= (now() - Interval 1 day)");
 		if (mysql_errno())

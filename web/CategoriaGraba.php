@@ -1,9 +1,11 @@
-<?
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Sesion.inc.php');
-	include('Validaciones.inc.php');
-	include('Categorias.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Validaciones.inc.php');
+	include_once('Categorias.inc.php');
 
 	if (!$Descripcion)
 		$mensaje .= "Debe ingresar Descripci&oacute;n<br>";

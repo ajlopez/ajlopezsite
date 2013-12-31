@@ -1,9 +1,11 @@
-<?
-	include('Conexion.inc.php');
-	include('Sesion.inc.php');
-	include('Usuarios.inc.php');
-	include('Categorias.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Conexion.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 

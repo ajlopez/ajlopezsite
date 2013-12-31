@@ -1,10 +1,12 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
-	include('Eventos.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Eventos.inc.php');
 
 	Conectar();
 
@@ -15,7 +17,7 @@
 	if (!$Motivo)
 		$Motivo = "Cursos a Distancia";
 	
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -35,7 +37,7 @@ correctamente su email, a esa dirección le contestaremos.
 <form action="ContactoGraba.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	if (UsuarioIdentificado())
 		CampoEstaticoGenera ("Usuario", UsuarioCodigo());
 	CampoTextoGenera("Email","Email",UsuarioEmail(),50,true);
@@ -48,8 +50,8 @@ correctamente su email, a esa dirección le contestaremos.
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

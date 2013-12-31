@@ -1,13 +1,15 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Categorias.inc.php');
-	include('Usuarios.inc.php');
-	include('Traduccion.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Categorias.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Traduccion.inc.php');
 
 	AdministradorControla();
 
@@ -40,14 +42,14 @@
 
 	CategoriaTraduce($IdReferencia, $DescripcionReferencia, $IdPadreReferencia);
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
 
 <p>
 <a href="Categorias.php">Categor&iacute;as</a>
-<?
+<?php
 	$Enlaces = CategoriasEnlaces($IdPadre);
 
 	if ($Enlaces) 
@@ -56,56 +58,56 @@
 <p>
 
 <p>
-<a href="Tema.php?Id=<? echo $Id; ?>">Muestra</a>
+<a href="Tema.php?Id=<?php echo $Id; ?>">Muestra</a>
 &nbsp;
 &nbsp;
-<a href="en/Topic.php?Id=<? echo $Id; ?>">Show</a>
+<a href="en/Topic.php?Id=<?php echo $Id; ?>">Show</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaActualiza.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="CategoriaActualiza.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaElimina.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="CategoriaElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
 <br>
-<a href="CategoriaActualiza.php?IdPadre=<? echo $Id; ?>">Nueva Subcategor&iacute;a</a>
+<a href="CategoriaActualiza.php?IdPadre=<?php echo $Id; ?>">Nueva Subcategor&iacute;a</a>
 &nbsp;
 &nbsp;
-<a href="ItemActualiza.php?IdCategoria=<? echo $Id; ?>">Nuevo Item</a>
+<a href="ItemActualiza.php?IdCategoria=<?php echo $Id; ?>">Nuevo Item</a>
 &nbsp;
 &nbsp;
-<a href="ArticuloActualiza.php?IdCategoria=<? echo $Id; ?>">Nuevo Art&iacute;culo</a>
+<a href="ArticuloActualiza.php?IdCategoria=<?php echo $Id; ?>">Nuevo Art&iacute;culo</a>
 &nbsp;
 &nbsp;
-<a href="ArchivosDirectorio.php?dir=busquedas&IdCategoria=<? echo $Id; ?>">Importa Items</a>
+<a href="ArchivosDirectorio.php?dir=busquedas&IdCategoria=<?php echo $Id; ?>">Importa Items</a>
 <br>
-<a href="CategoriaSeleccionaPadre.php?IdHijo=<? echo $Id; ?>&IdCategoria=<? echo $IdPadre; ?>">Selecciona Padre</a>
+<a href="CategoriaSeleccionaPadre.php?IdHijo=<?php echo $Id; ?>&IdCategoria=<?php echo $IdPadre; ?>">Selecciona Padre</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaSeleccionaRef.php?IdReferente=<? echo $Id; ?>&IdCategoria=<? echo $IdPadre; ?>">Selecciona Referencia</a>
+<a href="CategoriaSeleccionaRef.php?IdReferente=<?php echo $Id; ?>&IdCategoria=<?php echo $IdPadre; ?>">Selecciona Referencia</a>
 <br>
-<?
+<?php
 	if ($Estado == CATEGORIAS_ESTADO_NORMAL) {
 ?>
-<a href="CategoriaCambiaEstado.php?Id=<? echo $Id; ?>&Estado=<? echo CATEGORIAS_ESTADO_DESHABILITADA ?>&Expande=1">Deshabilita Categor&iacute;a y Subcategor&iacute;as</a>
-<?
+<a href="CategoriaCambiaEstado.php?Id=<?php echo $Id; ?>&Estado=<?php echo CATEGORIAS_ESTADO_DESHABILITADA ?>&Expande=1">Deshabilita Categor&iacute;a y Subcategor&iacute;as</a>
+<?php
 	}
 	else {
 ?>
-<a href="CategoriaCambiaEstado.php?Id=<? echo $Id; ?>&Estado=<? echo CATEGORIAS_ESTADO_NORMAL ?>&Expande=1">Habilita Categor&iacute;a y Subcategor&iacute;as</a>
+<a href="CategoriaCambiaEstado.php?Id=<?php echo $Id; ?>&Estado=<?php echo CATEGORIAS_ESTADO_NORMAL ?>&Expande=1">Habilita Categor&iacute;a y Subcategor&iacute;as</a>
 &nbsp;
 &nbsp;
-<a href="CategoriaCambiaEstado.php?Id=<? echo $Id; ?>&Estado=<? echo CATEGORIAS_ESTADO_NORMAL ?>&Expande=0">Habilita Categor&iacute;a</a>
-<?
+<a href="CategoriaCambiaEstado.php?Id=<?php echo $Id; ?>&Estado=<?php echo CATEGORIAS_ESTADO_NORMAL ?>&Expande=0">Habilita Categor&iacute;a</a>
+<?php
 	}
 ?>
 &nbsp;
 &nbsp;
-<a href="Eventos.php?Parametro=Tema.php&IdParametro=<? echo $Id; ?>">Visitas</a>
+<a href="Eventos.php?Parametro=Tema.php&IdParametro=<?php echo $Id; ?>">Visitas</a>
 </p>
 <p>
 
 <table cellspacing=1 cellpadding=2 class="Formulario" width=500>
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	if ($Estado)
 		CampoEstaticoGenera("Descripci&oacute;n","($Descripcion)");
@@ -130,7 +132,7 @@
 ?>
 </table>
 
-<?
+<?php
 function MuestraRegistro($reg) {
 	FilaInicio();
 	if ($reg["Estado"])
@@ -149,8 +151,7 @@ function MuestraRegistro($reg) {
 <p>
 <h2>Subcategor&iacute;as</h2>
 
-<?		
-	
+<?php
 		$titulos = array('Descripci&oacute;n', 'Visitas');
 
 		TablaInicio($titulos,"90%");
@@ -164,7 +165,7 @@ function MuestraRegistro($reg) {
 	mysql_free_result($rs);
 ?>
 
-<?
+<?php
 function MuestraItem($reg) {
 	global $Id;
 
@@ -193,7 +194,7 @@ function MuestraItem($reg) {
 <p>
 <h2>Items</h2>
 
-<?			
+<?php		
 		$titulos = array('Descripci&oacute;n', 'Idioma', 'Visitas', 'Prio', 'Acci&oacute;n');
 
 		TablaInicio($titulos,"90%");
@@ -207,7 +208,7 @@ function MuestraItem($reg) {
 	mysql_free_result($rs);
 ?>
 
-<?
+<?php
 function MuestraArticulo($reg) {
 	global $Id;
 
@@ -238,7 +239,7 @@ function MuestraArticulo($reg) {
 <p>
 <h2>Art&iacute;culos</h2>
 
-<?			
+<?php		
 		$titulos = array('T&iacute;tulo', 'Idioma', 'Visitas', 'Prio', 'Acci&oacute;n' );
 
 		TablaInicio($titulos,"90%");
@@ -255,8 +256,8 @@ function MuestraArticulo($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

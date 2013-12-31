@@ -1,13 +1,15 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Cursos.inc.php');
-	include('Usuarios.inc.php');
-	include('Eventos.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Eventos.inc.php');
 
 	Conectar();
 
@@ -33,7 +35,7 @@
 
 	$PaginaTitulo = "Curso<br>$Descripcion";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -42,28 +44,28 @@
 
 <p>
 <a href="UsuarioCursos.php">Mis Cursos</a>
-<?
+<?php
 	if (CursoHabilitado($Id) && CursoUsuarioEsAlumno($Id,UsuarioId())) {
 ?>
 &nbsp;
 &nbsp;
 <a href='CursoLecciones.php?Id=<? echo $Id; ?>'>Lecciones</a>
-<?
+<?php
 	}
 ?>
-<?
+<?php
 	if (EsAdministrador()) {
 ?>
 &nbsp;
 &nbsp;
 <a href="Curso.php?Id=<? echo $Id; ?>">Administra</a>
-<?
+<?php
 	}
 ?>
 </p>
 <p>
 
-<?
+<?php
 function ParrafoGenera($titulo,$texto) {
 	if (!$texto)
 		return;
@@ -94,8 +96,8 @@ function ParrafoGenera($titulo,$texto) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 
