@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+
 	include_once('GetParameters.inc.php');
 	include_once('Campos.inc.php');
 	include_once('Conexion.inc.php');
@@ -52,12 +54,12 @@
 
 <HTML>
 <HEAD>
-	<TITLE><? echo $Descripcion; ?></TITLE>
+	<TITLE><?php echo $Descripcion; ?></TITLE>
 </HEAD>
 <frameset rows="120,*" border=0 bordercolor="#000000" framespacing=0 frameborder=0 noborder>
 
-	<frame name="tope" src="ArticuloVeTope.php?Id=<? echo $Id; ?>&Title=<?= $Descripcion ?>" scrolling="NO" NORESIZE>
-	<frame name="principal" src="<? echo NormalizaUrl($Url); ?>">
+	<frame name="tope" src="ArticuloVeTope.php?Id=<?php echo $Id; ?>&Title=<?= $Descripcion ?>" scrolling="NO" NORESIZE>
+	<frame name="principal" src="<?php echo NormalizaUrl($Url); ?>">
 </frameset>
 
 <noframes>
@@ -67,6 +69,6 @@
 </noframes>
 </HTML>
 
-<?
+<?php
 
 ?>

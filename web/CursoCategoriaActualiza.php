@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 	
@@ -22,7 +24,7 @@
 		$EsNuevo = 1;
 	}
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -30,16 +32,16 @@
 <p>
 <a href="CursosCategorias.php">Categor&iacute;as de Cursos</a>
 
-<?
+<?php
 	if (!$EsNuevo) {
 ?>
 &nbsp;
 &nbsp;
-<a href="CursoCategoria.php?Id=<? echo $Id; ?>">Categor&iacute;a</a>
+<a href="CursoCategoria.php?Id=<?php echo $Id; ?>">Categor&iacute;a</a>
 &nbsp;
 &nbsp;
-<a href="CursoCategoriaElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="CursoCategoriaElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -49,7 +51,7 @@
 <form action="CursoCategoriaGraba.php" method=post>
 
 <table class="Formulario" width="80%">
-<?
+<?php
 	if (!$EsNuevo)
 		CampoEstaticoGenera("Id",$Id);
 	CampoTextoGenera("Descripcion","Descripci&oacute;n",$Descripcion,50);
@@ -59,7 +61,7 @@
 ?>
 </table>
 
-<?
+<?php
 	if (!$EsNuevo)
 		IdGenera($Id);
 ?>
@@ -67,7 +69,7 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>

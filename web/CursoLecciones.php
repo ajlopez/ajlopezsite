@@ -1,13 +1,15 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Cursos.inc.php');
-	include('Usuarios.inc.php');
-	include('Eventos.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Eventos.inc.php');
 
 	Conectar();
 
@@ -35,7 +37,7 @@
 
 	$PaginaTitulo = "Primeras Lecciones del Curso<br>$Descripcion";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 
 	$rsLecciones = mysql_query("select * from lecciones where IdCurso = $Id and Orden>0 order by Orden");
 ?>
@@ -47,7 +49,7 @@
 <p>
 <a href="UsuarioCursos.php">Mis Cursos</a>
 &nbsp;&nbsp;
-<a href="CursoMuestra.php?Id=<? echo $leccion->IdCurso; ?>">Este Curso</a>
+<a href="CursoMuestra.php?Id=<?php echo $leccion->IdCurso; ?>">Este Curso</a>
 </p>
 
 <p>
@@ -55,21 +57,21 @@ Estas son las lecciones del cursos. Semana a semana se agregarán más lecciones. 
 puede preguntar por email a <a href='mailto:webmaster@todocontenidos.com'>webmaster@todocontenidos.com</a>
 </p>
 
-<?
+<?php
 	while ($leccion=mysql_fetch_object($rsLecciones)) {
 ?>
-<a href='CursoLeccion.php?Id=<? echo $leccion->Id; ?>'>
-<? echo $leccion->Descripcion; ?>
+<a href='CursoLeccion.php?Id=<?php echo $leccion->Id; ?>'>
+<?php echo $leccion->Descripcion; ?>
 </a>
 <br>
-<?
+<?php
 	}
 ?>
 
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>

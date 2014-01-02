@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+    
 	include_once('GetParameters.inc.php');
 	include_once('Campos.inc.php');
 	include_once('Conexion.inc.php');
@@ -84,7 +86,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 
 </center>
 
-<?
+<?php
 	if ($Copete) {
 		echo "<p class=noticiacopete>";
 		echo nl2br($Copete);
@@ -121,7 +123,7 @@ src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 	}
 ?>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>
