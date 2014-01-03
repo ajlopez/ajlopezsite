@@ -1,12 +1,14 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Cursos.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Usuarios.inc.php');
 
 	Conectar();
 
@@ -39,7 +41,7 @@
 
 	$puntos = UsuarioPuntosEx();
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -47,10 +49,10 @@
 <p>
 
 <p>
-<a href="CursosMuestra.php?IdCategoria=<? echo $IdCategoria; ?>">Otros Cursos</a>
+<a href="CursosMuestra.php?IdCategoria=<?php echo $IdCategoria; ?>">Otros Cursos</a>
 &nbsp;
 &nbsp;
-<a href="CursoMuestra.php?Id=<? echo $Id; ?>">Detalle del Curso</a>
+<a href="CursoMuestra.php?Id=<?php echo $Id; ?>">Detalle del Curso</a>
 </p>
 
 <h2>En Argentina, respetamos UN PESO = UN DOLAR</h2>
@@ -71,7 +73,7 @@ Agradecemos a todos los usuarios inscriptos, la confianza depositada en nosotros
 
 <p>
 
-<?
+<?php
 function ParrafoGenera($titulo,$texto) {
 	echo "<h2 align=left>$titulo</h2>\n";
 	echo "<p align=left>\n$texto\n</p>\n";
@@ -83,24 +85,24 @@ function ParrafoGenera($titulo,$texto) {
 <h2>Inscripci&oacute;n</h2>
 
 <p>
-<?
+<?php
 	echo UsuarioSexoSufijo("Estimad");
 	echo ' ';
 	echo UsuarioNombreCompleto();
 ?>
 : si desea inscribirse en este curso, por favor, confirme la operaci&oacute;n con el bot&oacute;n de m&aacute;s abajo. Si tiene alguna
-duda sobre los requisitos, objetivos y temario del mismo, consulte el <a href="CursoMuestra.php?Id=<? echo $Id; ?>">detalle del curso</a>.
+duda sobre los requisitos, objetivos y temario del mismo, consulte el <a href="CursoMuestra.php?Id=<?php echo $Id; ?>">detalle del curso</a>.
 </p>
 
-<?
+<?php
 	if ($ImportePrecio>0) {
 ?>
 
 <p>
-El precio del curso es <b>$ <? echo $ImportePrecio; ?> usd (d&oacute;lares americanos)</b> o su equivalente en moneda local. Puede pagarlo
+El precio del curso es <b>$ <?php echo $ImportePrecio; ?> usd (d&oacute;lares americanos)</b> o su equivalente en moneda local. Puede pagarlo
 de las siguientes formas:
 </p>
-<?
+<?php
 	if (UsuarioEsArgentino()) {
 ?>
 
@@ -119,14 +121,14 @@ de las siguientes formas:
 <p>
 <b>Transferencia Western Union</b>
 </p>
-<?
+<?php
 	}
 	else {
 ?>
 <p>
 <b>Transferencia Western Union</b>
 </p>
-<?
+<?php
 	}
 ?>
 
@@ -139,17 +141,17 @@ el pago.
 Una vez efectuado el pago, ingrese como usuario al sitio, y, desde su <a href="UsuarioPagina.php">P&aacute;gina Personal</a>,
 complete los datos del mismo.
 </p>
-<?
+<?php
 	if ($puntos) {
 		$maxpuntos = (integer) ($ImportePrecio * 1000 / 4);
 ?>
-<p>Ud. tiene <b><? echo $puntos; ?> puntos</b> a su favor. Puede aplicar hasta <b><? echo $maxpuntos; ?> puntos</b>
+<p>Ud. tiene <b><?php echo $puntos; ?> puntos</b> a su favor. Puede aplicar hasta <b><?php echo $maxpuntos; ?> puntos</b>
 (u$s 1 los 1000 puntos) como descuento al precio del curso (hasta 25% del precio).
-<?
+<?php
 	}
 ?>
 
-<?
+<?php
 	}
 	else {
 ?>
@@ -157,23 +159,23 @@ complete los datos del mismo.
 El curso es completamente gratuito.
 </p>
 
-<?
+<?php
 	}
 ?>
 
 <center>
 <form action="CursoConfirma.php" method="post">
-<input type="hidden" name="Id" value="<? echo $Id; ?>">
-<?
+<input type="hidden" name="Id" value="<?php echo $Id; ?>">
+<?php
 	if ($puntos) {
 		$puntosaplica = $maxpuntos;
 		if ($puntosaplica > $puntos)
 			$puntosaplica = $puntos;
 ?>
 <p>
-Puntos a aplicar (hasta <? echo $puntosaplica; ?>) &nbsp;&nbsp;&nbsp;<input type="text" name="PuntosAplica" value="<? echo $puntosaplica; ?>" size=10>
+Puntos a aplicar (hasta <?php echo $puntosaplica; ?>) &nbsp;&nbsp;&nbsp;<input type="text" name="PuntosAplica" value="<?php echo $puntosaplica; ?>" size=10>
 </p>
-<?
+<?php
 	}
 ?>
 <input type="Submit" value="Confirme la inscripci&oacute;n al curso">
@@ -184,7 +186,7 @@ Puntos a aplicar (hasta <? echo $puntosaplica; ?>) &nbsp;&nbsp;&nbsp;<input type
 <p>
 </p>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>

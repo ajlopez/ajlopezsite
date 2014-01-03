@@ -1,12 +1,14 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Cursos.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Cursos.inc.php');
+	include_once('Usuarios.inc.php');
 
 	Conectar();
 
@@ -27,7 +29,7 @@
 
 	$PaginaTitulo = "Inscripci&oacute;n en el Curso<br>$Descripcion";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -35,10 +37,10 @@
 <p>
 
 <p>
-<a href="CursosMuestra.php?IdCategoria=<? echo $IdCategoria; ?>">Otros Cursos</a>
+<a href="CursosMuestra.php?IdCategoria=<?php echo $IdCategoria; ?>">Otros Cursos</a>
 &nbsp;
 &nbsp;
-<a href="CursoMuestra.php?Id=<? echo $Id; ?>">Detalle del Curso</a>
+<a href="CursoMuestra.php?Id=<?php echo $Id; ?>">Detalle del Curso</a>
 </p>
 
 </center>
@@ -63,6 +65,6 @@ Si no es usuario del sitio, puede <a href="UsuarioActualiza.php">registrarse aqu
 
 <?
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 
