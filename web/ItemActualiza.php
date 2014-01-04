@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 	
@@ -40,16 +42,16 @@
 <center>
 
 <p>
-<?
+<?php
 	if ($Id) {
 ?>
 &nbsp;
 &nbsp;
-<a href="Item.php?Id=<? echo $Id; ?>">Item</a>
+<a href="Item.php?Id=<?php echo $Id; ?>">Item</a>
 &nbsp;
 &nbsp;
-<a href="ItemElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="ItemElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -59,7 +61,7 @@
 <form action="ItemGraba.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	if ($Id)
 		CampoEstaticoGenera("Id",$Id);
 	CampoTextoGenera("Descripcion","Descripci&oacute;n",$Descripcion,50);
@@ -76,9 +78,9 @@
 ?>
 </table>
 
-<input type="hidden" name="IdCategoria" value="<? echo $IdCategoria; ?>">
+<input type="hidden" name="IdCategoria" value="<?php echo $IdCategoria; ?>">
 
-<?
+<?php
 	if ($Id)
 		IdGenera($Id);
 ?>
@@ -87,7 +89,7 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>

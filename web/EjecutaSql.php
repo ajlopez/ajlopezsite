@@ -1,5 +1,7 @@
-<?
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Usuarios.inc.php');
 
 	AdministradorControla();
 
@@ -8,7 +10,7 @@
 
 	include('Inicio.inc.php');
 
-	include('DBUtiles.inc.php');
+	include_once('DBUtiles.inc.php');
 
 	$query = stripSlashes($query) ;
 ?>
@@ -16,12 +18,12 @@
 <form method="post" action="EjecutaSql.php">
 <p>
 Ingrese el comando SQL a ejecutar:<BR><BR>
-<TEXTAREA NAME="query" COLS=50 ROWS=10><? echo $query; ?></TEXTAREA>
+<TEXTAREA NAME="query" COLS=50 ROWS=10><?php echo $query; ?></TEXTAREA>
 <BR><BR>
 <INPUT TYPE=SUBMIT VALUE="Ejecutar">
 </FORM>
 
-<?
+<?php
 
 if (!empty($query)):
 	include('Conexion.inc.php');

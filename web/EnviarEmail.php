@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Usuarios.inc.php');
-	include('Sesion.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Sesion.inc.php');
 
 	AdministradorControla();
 
@@ -40,14 +42,14 @@ function SendMail($FROM,$TO,$SUBJECT,$MESSAGE,$REPLYTO='',$TYPE='')
 
 	Conectar();
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 <center>
 
 <p>
 <form method=post>
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	CampoTextoGenera("De","De",$De,40);
 	CampoTextoGenera("Para","Para",$Para,40);
 	CampoTextoGenera("Titulo","T&iacute;tulo",$Titulo,60);
@@ -59,8 +61,8 @@ function SendMail($FROM,$TO,$SUBJECT,$MESSAGE,$REPLYTO='',$TYPE='')
 </p>
 </center>
 
-<?
-	require('Final.inc.php');
+<?php
+	include('Final.inc.php');
 
 	Desconectar();
 ?>

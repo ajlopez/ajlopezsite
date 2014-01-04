@@ -1,9 +1,11 @@
-<?
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Sesion.inc.php');
-	include('Usuarios.inc.php');
-	include('Validaciones.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Validaciones.inc.php');
 
 	$PaginaTitulo = "Sugiere Sitio o Enlace";
 
@@ -42,7 +44,7 @@
 
 	$Id = mysql_insert_id();
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <p>
@@ -51,6 +53,6 @@ Su sugerencia ha sido registrada. La procesaremos a la brevedad.
 
 <?
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

@@ -1,8 +1,10 @@
-<?
-	include($PaginaPrefijo.'Usuarios.inc.php');
-	include($PaginaPrefijo.'Paginas.inc.php');
-	include($PaginaPrefijo.'Eventos.inc.php');
-	include($PaginaPrefijo.'Categorias.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once($PaginaPrefijo.'Usuarios.inc.php');
+	include_once($PaginaPrefijo.'Paginas.inc.php');
+	include_once($PaginaPrefijo.'Eventos.inc.php');
+	include_once($PaginaPrefijo.'Categorias.inc.php');
 
 	Conectar();
 
@@ -28,7 +30,7 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

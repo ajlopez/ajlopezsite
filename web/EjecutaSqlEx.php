@@ -1,6 +1,8 @@
-<?
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	AdministradorControla();
 
@@ -17,17 +19,17 @@
 
 	include('Inicio.inc.php');
 
-	include('DBUtiles.inc.php');
+	include_once('DBUtiles.inc.php');
 ?>
 
-<?
-	include('Conexion.inc.php');
+<?php
+	include_once('Conexion.inc.php');
 	Conectar();
 	$result = @mysql_query($Consulta);
 ?>
 
 <p>
-<a href="EjecutaSql.php?query=<? echo urlencode($Consulta); ?>">Ejecuta esta consulta</a>
+<a href="EjecutaSql.php?query=<?php echo urlencode($Consulta); ?>">Ejecuta esta consulta</a>
 &nbsp;
 &nbsp;
 <a href="EjecutaSql.php">Ejecuta SQL</a>
@@ -48,5 +50,5 @@ endif;
 
 	Desconectar();
 
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
