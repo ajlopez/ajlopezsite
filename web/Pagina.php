@@ -1,12 +1,14 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Traduccion.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Traduccion.inc.php');
+	include_once('Usuarios.inc.php');
 
 	Conectar();
 	
@@ -43,35 +45,35 @@
 <a href="Paginas.php">P&aacute;ginas</a>
 &nbsp;
 &nbsp;
-<a href="PaginaMuestra.php?Id=<? echo $Id; ?>">Muestra</a>
+<a href="PaginaMuestra.php?Id=<?php echo $Id; ?>">Muestra</a>
 &nbsp;
 &nbsp;
-<a href="PaginaActualiza.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="PaginaActualiza.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="PaginaElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="PaginaElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	if ($IdReferencia) {
 ?>
 &nbsp;
 &nbsp;
-<a href="Referencia.php?Id=<? echo $IdReferencia; ?>">Referencia</a>
-<?
+<a href="Referencia.php?Id=<?php echo $IdReferencia; ?>">Referencia</a>
+<?php
 	} else {
 ?>
 &nbsp;
 &nbsp;
-<a href="PaginaArmaReferencia.php?Id=<? echo $Id; ?>">Crea Referencia</a>
-<?
+<a href="PaginaArmaReferencia.php?Id=<?php echo $Id; ?>">Crea Referencia</a>
+<?php
 	}
 ?>
 <br>
-<a href="Eventos.php?Tipo=PA&IdParametro=<? echo $Id; ?>">Visitas</a>
+<a href="Eventos.php?Tipo=PA&IdParametro=<?php echo $Id; ?>">Visitas</a>
 </p>
 <p>
 
 <table cellspacing=1 cellpadding=2 class="Formulario" width='90%'>
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	CampoEstaticoGenera("Título", $Titulo);
 	CampoEstaticoGenera("Alias", $Alias);
@@ -89,7 +91,7 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>

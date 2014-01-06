@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 	
@@ -30,16 +32,16 @@
 <center>
 
 <p>
-<?
+<?php
 	if (!$EsNuevo) {
 ?>
 &nbsp;
 &nbsp;
-<a href="Pagina.php?Id=<? echo $Id; ?>">P&aacute;gina</a>
+<a href="Pagina.php?Id=<?php echo $Id; ?>">P&aacute;gina</a>
 &nbsp;
 &nbsp;
-<a href="PaginaElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="PaginaElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -49,7 +51,7 @@
 <form action="PaginaGraba.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="Formulario" width='90%'>
-<?
+<?php
 	if (!$EsNuevo)
 		CampoEstaticoGenera("Id",$Id);
 
@@ -63,7 +65,7 @@
 ?>
 </table>
 
-<?
+<?php
 	if (!$EsNuevo)
 		IdGenera($Id);
 ?>
@@ -72,7 +74,7 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	require('Final.inc.php');
 ?>

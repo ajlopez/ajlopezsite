@@ -1,8 +1,10 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
 
 	$PaginaTitulo = "Noticias";
 
@@ -28,7 +30,7 @@
 <a href="NoticiaActualiza.php?IdCategoria=$IdCategoria">Nueva Noticia...</a>
 <p>
 
-<?		
+<?php	
 function MuestraRegistro($reg) {
 	FilaInicio();
 	DatoEnlaceGenera($reg["Titulo"], "Noticia.php?Id=".$reg["Id"]);
@@ -46,7 +48,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>
