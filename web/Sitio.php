@@ -1,11 +1,13 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Utiles.inc.php');
-	include('Categorias.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Utiles.inc.php');
+	include_once('Categorias.inc.php');
 
 	Conectar();
 	
@@ -21,7 +23,7 @@
 	mysql_free_result($res);
 	$PaginaTitulo = "Sitio: $Descripcion";
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -30,15 +32,15 @@
 <a href="Sitios.php">Sitios</a>
 &nbsp;
 &nbsp;
-<a href="SitioActualiza.php?Id=<? echo $Id; ?>">Actualiza</a>
+<a href="SitioActualiza.php?Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="SitioElimina.php?Id=<? echo $Id; ?>">Elimina</a>
+<a href="SitioElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
 </p>
 <p>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	CampoEstaticoGenera("Descripci&oacute;n",$Descripcion);
 	CampoEnlaceGenera("Enlace",$Enlace,$Enlace);
@@ -46,7 +48,7 @@
 ?>
 </table>
 
-<?
+<?php
 function MuestraArticulo($reg) {
 	global $Id;
 
@@ -69,7 +71,7 @@ function MuestraArticulo($reg) {
 <p>
 <h2>Art&iacute;culos</h2>
 
-<?			
+<?php		
 		$titulos = array("T&iacute;tulo");
 
 		TablaInicio($titulos,"90%");
@@ -81,7 +83,7 @@ function MuestraArticulo($reg) {
 	}
 ?>
 
-<?
+<?php
 function MuestraItem($reg) {
 	global $Id;
 
@@ -104,7 +106,7 @@ function MuestraItem($reg) {
 <p>
 <h2>Items</h2>
 
-<?			
+<?php		
 		$titulos = array("Descripci&oacute;n");
 
 		TablaInicio($titulos,"90%");
@@ -117,8 +119,8 @@ function MuestraItem($reg) {
 ?>
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

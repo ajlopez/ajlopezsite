@@ -1,30 +1,32 @@
-<?
-	include('Campos.inc.php');
-	include('Paginas.inc.php');
-	include('Emails.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Emails.inc.php');
 
 	$PaginaTitulo = "Recomiende todocontenidos.com";
 
 	$ArchivoJs = 'Utiles.js';
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
 
 <p>
-Ud. puede dar a conocer nuestro sitio <a href="<? echo PaginaPrincipal(); ?>">todocontenidos.com</a>. Rellene este formulario
+Ud. puede dar a conocer nuestro sitio <a href="<?php echo PaginaPrincipal(); ?>">todocontenidos.com</a>. Rellene este formulario
 para recomendarlo a sus amistades.
 </p>
 
-<?
+<?php
 	if (UsuarioIdentificado()) {
 ?>
 <p>
 Si alguno de sus referidos se registra en nuestro sitio, Ud. comenzar&aacute; a ganar puntos. Consulte <a href="UsuarioPuntos.php">Mis Puntos</a>
 para mayor informaci&oacute;n.
 </p>
-<?
+<?php
 	}
 ?>
 
@@ -34,7 +36,7 @@ para mayor informaci&oacute;n.
 function ValidaFormulario(thisform)
 {
 	with (thisform) {
-<?
+<?php
 	if (!UsuarioIdentificado()) {
 ?>
 		if (EsBlanco(Email.value)) {
@@ -42,7 +44,7 @@ function ValidaFormulario(thisform)
 			Email.focus();
 			return false;
 		}
-<?
+<?php
 	}
 ?>
 		if (!EsBlanco(Email1.value) && !EmailValida(Email1)) {
@@ -84,7 +86,7 @@ function ValidaFormulario(thisform)
 <form action="RecomendarGraba.php" method=post onsubmit="return ValidaFormulario(this);">
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	if (UsuarioIdentificado())
 		CampoEstaticoGenera("Su Email",UsuarioEmail());
 	else
@@ -98,11 +100,11 @@ function ValidaFormulario(thisform)
 	CampoMemoEstaticoGenera("Email<br>a enviar", EmailTextoRecomendar());
 ?>
 </table>
-<?
+<?php
 	if (UsuarioIdentificado()) {
 ?>
-<input type="hidden" name="Email" value="<? echo UsuarioEmail(); ?>">
-<?
+<input type="hidden" name="Email" value="<?php echo UsuarioEmail(); ?>">
+<?php
 	}
 ?>
 <input type="submit" value="Aceptar">
@@ -112,7 +114,7 @@ function ValidaFormulario(thisform)
 
 </center>
 
-<?
-	require('Final.inc.php');
+<?php
+	include('Final.inc.php');
 ?>
 

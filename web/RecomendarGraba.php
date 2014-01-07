@@ -1,12 +1,14 @@
-<?
-	include('Paginas.inc.php');
-	include('Items.inc.php');
-	include('Eventos.inc.php');
-	include('Conexion.inc.php');
-	include('Puntos.inc.php');
-	include('Usuarios.inc.php');
-	include('Emails.inc.php');
-	include('Validaciones.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Paginas.inc.php');
+	include_once('Items.inc.php');
+	include_once('Eventos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Puntos.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Emails.inc.php');
+	include_once('Validaciones.inc.php');
 
 	if (!$Email)
 		PaginaSalir();
@@ -60,7 +62,7 @@ Estimado usuario: gracias por recomendar nuestro sitio. Esperemos poderle brinda
 referidos.
 </p>
 
-<?
+<?php
 	include('Final.inc.php');
 	Desconectar();
 ?>

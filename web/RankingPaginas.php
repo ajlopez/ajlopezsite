@@ -1,10 +1,12 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Usuarios.inc.php');
-	include('Utiles.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Utiles.inc.php');
 
 	$PaginaTitulo = "Ranking de P&aacute;ginas";
 
@@ -57,17 +59,17 @@
 <center>
 
 <p>
-<a href="RankingPaginas.php?Desde=0<? echo $Parametros; ?>">Inicio</a>
+<a href="RankingPaginas.php?Desde=0<?php echo $Parametros; ?>">Inicio</a>
 &nbsp;&nbsp;
-<a href="RankingPaginas.php?Desde=<? echo $Anterior; ?><? echo $Parametros; ?>">Anterior</a>
+<a href="RankingPaginas.php?Desde=<?php echo $Anterior; ?><?php echo $Parametros; ?>">Anterior</a>
 &nbsp;&nbsp;
-<a href="RankingPaginas.php?Desde=<? echo $Siguiente; ?><? echo $Parametros; ?>">Siguiente</a>
+<a href="RankingPaginas.php?Desde=<?php echo $Siguiente; ?><?php echo $Parametros; ?>">Siguiente</a>
 &nbsp;&nbsp;
-<a href="RankingPaginas.php?Desde=<? echo $Ultimo; ?><? echo $Parametros; ?>">Final</a>
+<a href="RankingPaginas.php?Desde=<?php echo $Ultimo; ?><?php echo $Parametros; ?>">Final</a>
 &nbsp;&nbsp;
 <p>
 
-<?		
+<?php
 function MuestraRegistro($reg) {
 	FilaInicio();
 	DatoEnlaceGenera($reg["Titulo"],"Pagina.php?Id=" . $reg["Id"]);
@@ -86,7 +88,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>
