@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+    
 	include('Conexion.inc.php');
 	include('Errores.inc.php');
 	include('Sesion.inc.php');

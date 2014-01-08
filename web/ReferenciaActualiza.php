@@ -1,9 +1,11 @@
 <?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
-	include('Paginas.inc.php');
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
+	include_once('Paginas.inc.php');
 
 	AdministradorControla('');
 
@@ -32,22 +34,22 @@
 
 	$Detalle=stripSlashes($Detalle);
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
 
 <p>
-<?
+<?php
 	if ($Id) {
 ?>
 &nbsp;
 &nbsp;
-<a href="Referencia.php?Id=<? echo $Id; ?>">Referencia</a>
+<a href="Referencia.php?Id=<?php echo $Id; ?>">Referencia</a>
 &nbsp;
 &nbsp;
-<a href="ReferenciaElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="ReferenciaElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -57,7 +59,7 @@
 <form action="ReferenciaGraba.php" method=post>
 
 <table cellspacing=1 cellpadding=2 class="Formulario">
-<?
+<?php
 	if ($Id)
 		CampoEstaticoGenera("Id",$Id);
 
@@ -75,7 +77,7 @@
 ?>
 </table>
 
-<?
+<?php
 	if ($Id)
 		IdGenera($Id);
 ?>
@@ -84,8 +86,8 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 
