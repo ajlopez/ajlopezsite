@@ -1,9 +1,11 @@
 <?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
 
 	Conectar();
 
@@ -33,10 +35,10 @@
 <center>
 
 <p>
-<a href="TablaDatoActualiza.php?IdTabla=<? echo $IdTabla; ?>">Nuevo <? echo $Singular; ?>...</a>
+<a href="TablaDatoActualiza.php?IdTabla=<?php echo $IdTabla; ?>">Nuevo <?php echo $Singular; ?>...</a>
 <p>
 
-<?		
+<?php		
 function MuestraRegistro($reg) {
 	global $Codigo;
 	global $IdTabla;
@@ -57,7 +59,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

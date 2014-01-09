@@ -1,8 +1,10 @@
 <?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 
@@ -29,24 +31,24 @@
 		 $EsNuevo = 1;
 	}
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
 
 <p>
-<a href="TablasDatos.php?IdTabla=<? echo $IdTabla; ?>"><? echo $Plural; ?></a>
+<a href="TablasDatos.php?IdTabla=<?php echo $IdTabla; ?>"><?php echo $Plural; ?></a>
 
-<?
+<?php
 	if (!$EsNuevo) {
 ?>
 &nbsp;
 &nbsp;
-<a href="TablaDato.php?IdTabla=<? echo $IdTabla; ?>&Id=<? echo $Id; ?>"><? echo $Singular; ?></a>
+<a href="TablaDato.php?IdTabla=<?php echo $IdTabla; ?>&Id=<?php echo $Id; ?>"><?php echo $Singular; ?></a>
 &nbsp;
 &nbsp;
-<a href="TablaDatoElimina.php?IdTabla=<? echo $IdTabla; ?>&Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="TablaDatoElimina.php?IdTabla=<?php echo $IdTabla; ?>&Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -56,7 +58,7 @@
 <form action="TablaDatoGraba.php" method=post>
 
 <table class="Formulario" width="80%">
-<?
+<?php
 	if (!$EsNuevo)
 		CampoEstaticoGenera("Id",$Id);
 
@@ -65,8 +67,8 @@
 	CampoAceptarGenera();
 ?>
 </table>
-<input type="hidden" name="IdTabla" value="<? echo $IdTabla; ?>">
-<?
+<input type="hidden" name="IdTabla" value="<?php echo $IdTabla; ?>">
+<?php
 	if (!$EsNuevo)
 		IdGenera($Id);
 ?>
@@ -74,8 +76,8 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 

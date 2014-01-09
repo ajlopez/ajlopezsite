@@ -1,8 +1,10 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
 
 	Conectar();
 	
@@ -32,7 +34,7 @@
 	$rsPaises = mysql_query("Select id, descripcion from paises order by descripcion");
 	echo mysql_error();
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
@@ -40,16 +42,16 @@
 <p>
 <a href="Usuarios.php">Usuarios</a>
 
-<?
+<?php
 	if (!$EsNuevo) {
 ?>
 &nbsp;
 &nbsp;
-<a href="Usuario.php?Id=<? echo $Id; ?>">Usuario</a>
+<a href="Usuario.php?Id=<?php echo $Id; ?>">Usuario</a>
 &nbsp;
 &nbsp;
-<a href="UsuarioElimina.php?Id=<? echo $Id; ?>">Elimina</a>
-<?
+<a href="UsuarioElimina.php?Id=<?php echo $Id; ?>">Elimina</a>
+<?php
 	}
 ?>
 </p>
@@ -59,7 +61,7 @@
 <form action="UsuarioGraba.php" method=post>
 
 <table class="Formulario" width="80%">
-<?
+<?php
 	if ($EsNuevo)
 		CampoTextoGenera("Codigo","Código",$Codigo,16);
 	else
@@ -77,7 +79,7 @@
 ?>
 </table>
 
-<?
+<?php
 	if (!$EsNuevo)
 		IdGenera($Id);
 ?>
@@ -85,7 +87,7 @@
 
 </center>
 
-<?
+<?php
 	mysql_free_result($rsPaises);
 	Desconectar();
 	require('Final.inc.php');

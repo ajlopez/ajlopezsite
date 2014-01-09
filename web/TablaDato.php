@@ -1,9 +1,11 @@
 <?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
 
 	if (!isset($IdTabla))
 		PaginaSalir();
@@ -26,24 +28,24 @@
 
 	$PaginaTitulo = $Singular;
 
-	require('Inicio.inc.php');
+	include('Inicio.inc.php');
 ?>
 
 <center>
 
 <p>
-<a href="TablasDatos.php?IdTabla=<? echo $IdTabla; ?>"><? echo $Plural; ?></a>
+<a href="TablasDatos.php?IdTabla=<?php echo $IdTabla; ?>"><?php echo $Plural; ?></a>
 &nbsp;
 &nbsp;
-<a href="TablaDatoActualiza.php?IdTabla=<? echo $IdTabla; ?>&Id=<? echo $Id; ?>">Actualiza</a>
+<a href="TablaDatoActualiza.php?IdTabla=<?php echo $IdTabla; ?>&Id=<?php echo $Id; ?>">Actualiza</a>
 &nbsp;
 &nbsp;
-<a href="TablaDatoElimina.php?IdTabla=<? echo $IdTabla; ?>&Id=<? echo $Id; ?>">Elimina</a>
+<a href="TablaDatoElimina.php?IdTabla=<?php echo $IdTabla; ?>&Id=<?php echo $Id; ?>">Elimina</a>
 </p>
 <p>
 
 <table class="Formulario" width="80%">
-<?
+<?php
 	CampoEstaticoGenera("Id",$Id);
 	CampoEstaticoGenera("Descripción",$Descripcion);
 ?>
@@ -51,8 +53,8 @@
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	require('Final.inc.php');
+	include('Final.inc.php');
 ?>
 
