@@ -1,7 +1,9 @@
-<?
-	include('Conexion.inc.php');
-	include('Errores.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Conexion.inc.php');
+	include_once('Errores.inc.php');
+	include_once('Usuarios.inc.php');
 
 	if (empty($Codigo))
 		ErrorMuestra('Debe ingresar Código');

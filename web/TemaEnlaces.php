@@ -1,4 +1,6 @@
 <?
+    include_once('Settings.inc.php');
+
 	include_once($PaginaPrefijo.'GetParameters.inc.php');
 	include_once($PaginaPrefijo.'Usuarios.inc.php');
 	include_once($PaginaPrefijo.'Paginas.inc.php');
@@ -52,30 +54,29 @@
 
 <center>
 
-<?
+<?php
 	if (EsAdministrador()) {
 		echo "<p><a href='" . $PaginaPrefijo . "Categoria.php?Id=$Id'>Administra</a></p>";
 	}
 ?>
 <p>
-<a href="<? echo $PaginaPrefijo; ?>Temas.php">Temas</a>
-<?
+<a href="<?php echo $PaginaPrefijo; ?>Temas.php">Temas</a>
+<?php
 	echo "&nbsp;->&nbsp;";
 	echo CategoriasEnlaces($Id,$PaginaPrefijo.'Tema.php');
 ?>
 </p>
-<?
+<?php
 	if ($NArticulos) {
 ?>
 <p>
-<a href="<? echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<? echo $Id; ?>&NItems=<? echo $NItems; ?>">Art&iacute;culos</a>
+<a href="<?php echo $PaginaPrefijo; ?>TemaArticulos.php?Id=<?php echo $Id; ?>&NItems=<?php echo $NItems; ?>">Art&iacute;culos</a>
 </p>
-<?
+<?php
 	}
 ?>
 
-
-<?
+<?php
 function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 {
 	global $PaginaPrefijo;
@@ -85,44 +86,44 @@ function ItemMuestra($Id,$Descripcion,$Detalle,$Url)
 ?>
 <tr>
 <td class=item valign=top>
-<a class=item target='_blank' href="<? echo $PaginaPrefijo; ?>ItemVe.php?Id=<? echo $Id; ?>">
-<? echo $Descripcion; ?>
+<a class=item target='_blank' href="<?php echo $PaginaPrefijo; ?>ItemVe.php?Id=<?php echo $Id; ?>">
+<?php echo $Descripcion; ?>
 </a>
-<?
+<?php
 	if (EsAdministrador()) {
 ?>
 &nbsp;
 &nbsp;
-<a href="<? echo $PaginaPrefijo; ?>Item.php?Id=<? echo $Id; ?>">Administra</a>
+<a href="<?php echo $PaginaPrefijo; ?>Item.php?Id=<?php echo $Id; ?>">Administra</a>
 
-<?
+<?php
 	}
 ?>
 <br>
-<? echo NormalizaHtml($Detalle); ?>
+<?php echo NormalizaHtml($Detalle); ?>
 </td>
 </tr>
-<?
+<?php
 }
 ?>
 
-<?
+<?php
 	if ($rsItems && mysql_num_rows($rsItems)) {
 ?>
 <p>
 <table width="100%" cellspacing=0 cellpadding=3>
-<?
+<?php
 		while ($reg=mysql_fetch_object($rsItems))
 			ItemMuestra($reg->Id, $reg->Descripcion, $reg->Detalle, $reg->Url);
 ?>
 </table>
-<?		
+<?php	
 	}
 ?>
 
 </center>
 
-<?
+<?php
 	Desconectar();
 
 	include($PaginaPrefijo.'Final.inc.php');

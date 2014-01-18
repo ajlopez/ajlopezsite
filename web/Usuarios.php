@@ -1,9 +1,11 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Usuarios.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Usuarios.inc.php');
 
 	$PaginaTitulo = "Usuarios";
 
@@ -41,7 +43,7 @@
 <a href="Usuarios.php?Orden=Puntos+desc">Usuarios por Puntos</a>
 <p>
 
-<?		
+<?php
 function MuestraRegistro($reg) {
    FilaInicio();
    DatoEnlaceGenera($reg["Codigo"], "Usuario.php?Id=".$reg["Id"]);
@@ -62,7 +64,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

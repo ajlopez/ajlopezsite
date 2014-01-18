@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+
 	include_once($PaginaPrefijo.'Usuarios.inc.php');
 	include_once($PaginaPrefijo.'Paginas.inc.php');
 	include_once($PaginaPrefijo.'Eventos.inc.php');
@@ -31,7 +33,7 @@ Informaci&oacute;n, art&iacute;culos, enlaces y recursos sobre estos temas.
 
 <table cellspacing=1 cellpadding=3 width=600 bgcolor=black>
 
-<?
+<?php
 function MuestraCategoria($Id,$Descripcion,$Resumen,$x,$y)
 {
 	$pos = $x + $y;
@@ -90,7 +92,7 @@ function MuestraVacio($x,$y)
 </table>
 </center>
 
-<?
+<?php
 	Desconectar();
 	include($PaginaPrefijo.'Final.inc.php');
 ?>
