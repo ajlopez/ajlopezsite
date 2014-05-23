@@ -1,10 +1,12 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Eventos.inc.php');
-	include('Categorias.inc.php');
+<?php
+    include_once('Settings.inc.php');
+    
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Eventos.inc.php');
+	include_once('Categorias.inc.php');
 
 	$PaginaTitulo = "Cursos";
 
@@ -24,16 +26,16 @@
 		$rs = mysql_query($sql);
 	}
 
-	include('Inicio.inc.php');
+	include_one('Inicio.inc.php');
 ?>
 
-<?
+<?php
 	if ($IdTema) {
 ?>
 <p align=center>
 <a href="CursosMuestra.php">Todos los Cursos</a>
 </p>
-<?
+<?php
 	}
 ?>
 
@@ -63,7 +65,7 @@ Agradecemos a todos los usuarios inscriptos, la confianza depositada en nosotros
 
 <p>
 
-<?		
+<?php	
 	if ($IdCategoria) {
 		$rscursos = mysql_query("select Id, Descripcion, Detalle, ImportePrecio from cursos where IdCategoria = $IdCategoria and Estado = 0 order by Descripcion");
 
@@ -95,7 +97,7 @@ Agradecemos a todos los usuarios inscriptos, la confianza depositada en nosotros
 ?>
 
 
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

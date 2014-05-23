@@ -1,10 +1,12 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
-	include('Eventos.inc.php');
-	include('Categorias.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
+	include_once('Eventos.inc.php');
+	include_once('Categorias.inc.php');
 
 	$PaginaTitulo = "Cursos Gratuitos";
 
@@ -15,7 +17,7 @@
 	$sql = "select * from cursoscategorias order by Descripcion";
 	$rs = mysql_query($sql);
 
-	include('Inicio.inc.php');
+	include_once('Inicio.inc.php');
 ?>
 
 <p align=center>
@@ -35,7 +37,7 @@ le permitirá ganar dinero, participando de la venta de nuestros servicios.
 
 <p>
 
-<?		
+<?php
 	while ($reg=mysql_fetch_array($rs)) {
 		echo "<h2>" . $reg["Descripcion"] . "</h2>";
 
@@ -49,8 +51,7 @@ le permitirá ganar dinero, participando de la venta de nuestros servicios.
 	}
 ?>
 
-
-<?
+<?php
 	Desconectar();
 	include('Final.inc.php');
 ?>

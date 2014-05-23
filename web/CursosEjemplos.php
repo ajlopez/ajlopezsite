@@ -1,4 +1,6 @@
-<?
+<?php
+    include_once('Settings.inc.php');
+
 	include_once('Usuarios.inc.php');
 	include_once('Paginas.inc.php');
 	include_once('Eventos.inc.php');
@@ -48,28 +50,28 @@ o pida información en <a href="http://www.ajlopez.net/ContactoADistancia.php">es
 
 </center>
 
-<?
+<?php
 	while ($reg=mysql_fetch_array($rsReferencias)) {
 ?>
 
 <p>
-<a class=item href='ReferenciaVe.php?Id=<? echo $reg['Id']; ?>'><? echo $reg['Titulo'] ?></a>
-<?
+<a class=item href='ReferenciaVe.php?Id=<?php echo $reg['Id']; ?>'><?php echo $reg['Titulo'] ?></a>
+<?php
 	if (EsAdministrador()) {
 ?>
-&nbsp;&nbsp;<a href='Referencia.php?Id=<? echo $reg['Id']; ?>'>Administra</a>
-<?
+&nbsp;&nbsp;<a href='Referencia.php?Id=<?php echo $reg['Id']; ?>'>Administra</a>
+<?php
 	}
 ?>
 <br>
-<? echo $reg['Detalle'] ?>
+<?php echo $reg['Detalle'] ?>
 </p>
-<?
+<?php
 	}
 ?>
 
-<?
+<?php
 	Desconectar();
-	include('Final.inc.php');
+	include_once('Final.inc.php');
 ?>
 

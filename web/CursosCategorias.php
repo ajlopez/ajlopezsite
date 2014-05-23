@@ -1,8 +1,10 @@
-<?
-	include('Campos.inc.php');
-	include('Conexion.inc.php');
-	include('Paginas.inc.php');
-	include('Sesion.inc.php');
+<?php
+    include_once('Settings.inc.php');
+
+	include_once('Campos.inc.php');
+	include_once('Conexion.inc.php');
+	include_once('Paginas.inc.php');
+	include_once('Sesion.inc.php');
 
 	$PaginaTitulo = "Categor&iacute;as de Cursos";
 
@@ -15,7 +17,7 @@
 
 	SesionPone("CursoCategoriaEnlace", PaginaActual());
 
-	include('Inicio.inc.php');
+	include_once('Inicio.inc.php');
 ?>
 
 <center>
@@ -24,7 +26,7 @@
 <a href="CursoCategoriaActualiza.php">Nueva Categoria...</a>
 <p>
 
-<?		
+<?php
 function MuestraRegistro($reg) {
 	FilaInicio();
 	DatoEnlaceGenera($reg["Descripcion"], "CursoCategoria.php?Id=".$reg["Id"]);
@@ -42,7 +44,7 @@ function MuestraRegistro($reg) {
 
 </center>
 
-<?
+<?php
 	Desconectar();
-	include('Final.inc.php');
+	include_once('Final.inc.php');
 ?>
