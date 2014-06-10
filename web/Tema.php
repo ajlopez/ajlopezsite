@@ -19,6 +19,9 @@
 	if (!$Id)
 		PaginaRedireccionar(PaginaPrincipal());
 
+    $Id += 0;
+    $IdPadre += 0;
+
 	EventoPagina($Id,'Tema.php');
 	CategoriaVisita($Id);
 
@@ -30,8 +33,8 @@
 
 	$NMaxArticulos = 20;
 	$NMaxItems = 20;
-
-	$sql = "select * from categorias where IdPadre=$Id and Estado=0 order by descripcion";
+    
+	$sql = "select * from categorias where IdPadre='$Id' and Estado=0 order by descripcion";
 	$rs = mysql_query($sql);
 	while ($reg = mysql_fetch_object($rs)) {
 		if ($reg->IdReferencia)
@@ -44,7 +47,7 @@
 
 	CategoriaTraduce($Id,$Descripcion,$IdPadre);
 
-	$rs = mysql_query("select Detalle from categorias where Id = $Id");
+	$rs = mysql_query("select Detalle from categorias where Id = '$Id'");
 
 	list($Detalle)=mysql_fetch_row($rs);
 

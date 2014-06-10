@@ -17,16 +17,18 @@
 	
 	if (!isset($Id))
 		PaginaSalir();
+        
+    $Id += 0;
 
 	$sql = "select Titulo, Enlace, Visitas, Votos1, Votos2, Votos3, Votos4, Votos5
-		 from articulos where Id = $Id";		 
+		 from articulos where Id = '$Id'";		 
 	$res = mysql_query($sql);
 	list($Descripcion, $Url, $Visitas, $Votos1, $Votos2, $Votos3, $Votos4, $Votos5)
 		= mysql_fetch_row($res);
 	mysql_free_result($res);
 	$PaginaTitulo = "$Descripcion";
 	if (UsuarioIdentificado()) {
-		$rsVisitas = mysql_query("select * from eventos where Tipo = 'AR' and IdUsuario = " . UsuarioId() . " and IdParametro = $Id and FechaHora >= (now() - Interval 1 day)");
+		$rsVisitas = mysql_query("select * from eventos where Tipo = 'AR' and IdUsuario = " . UsuarioId() . " and IdParametro = '$Id' and FechaHora >= (now() - Interval 1 day)");
 		if (mysql_errno())
 			echo mysql_error();
 		if (!mysql_num_rows($rsVisitas))

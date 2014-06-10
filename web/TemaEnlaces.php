@@ -20,6 +20,10 @@
 	if (!$Id)
 		PaginaRedireccionar(PaginaPrincipal());
 
+    $Id += 0;
+    $IdPadre += 0;
+    $NArticulos += 0;
+    
 	EventoPagina($Id);
 	CategoriaVisita($Id);
 
@@ -41,7 +45,7 @@
 
 	include($PaginaPrefijo.'Inicio.inc.php');
 
-	$sql = "Select i.* from categoriasitems ci left join items i on ci.IdItem = i.Id where ci.IdCategoria = $Id and ci.Estado=0 and i.Estado=0";
+	$sql = "Select i.* from categoriasitems ci left join items i on ci.IdItem = i.Id where ci.IdCategoria = '$Id' and ci.Estado=0 and i.Estado=0";
 	$sql .= " order by i.Prioridad, i.Visitas desc, i.Id";
 	$rsItems = mysql_query($sql);
 

@@ -19,6 +19,10 @@
 
 	if (!$Id)
 		PaginaRedireccionar(PaginaPrincipal());
+        
+    $Id += 0;
+    $IdPadre += 0;
+    $NItems += 0;
 
 	EventoPagina($Id);
 	CategoriaVisita($Id);
@@ -41,7 +45,7 @@
 
 	include($PaginaPrefijo.'Inicio.inc.php');
 
-	$sql = "select a.Id, a.Titulo, a.Resumen, a.Contenido, a.Enlace from categoriasarticulos ca, articulos a where ca.IdArticulo = a.Id and ca.IdCategoria=$Id and ca.Estado=0 and a.IdEstado=0";
+	$sql = "select a.Id, a.Titulo, a.Resumen, a.Contenido, a.Enlace from categoriasarticulos ca, articulos a where ca.IdArticulo = a.Id and ca.IdCategoria='$Id' and ca.Estado=0 and a.IdEstado=0";
 	$sql .= " order by a.Prioridad, a.Visitas desc, a.Id desc";
 	$rsArticulos=mysql_query($sql);
 
