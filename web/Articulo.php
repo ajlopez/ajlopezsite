@@ -1,6 +1,7 @@
 <?php
     include_once('Settings.inc.php');
 
+	include_once('GetParameters.inc.php');
 	include_once('Campos.inc.php');
 	include_once('Conexion.inc.php');
 	include_once('Errores.inc.php');
@@ -20,8 +21,10 @@
 
 	if (!isset($Id))
 		PaginaSalir();
+        
+    $Id += 0;
 
-	$sql = "select Titulo, IdClase, IdSitio, Resumen, Copete, Contenido, EsHTML, Archivo, Imagen, TextoImagen, Enlace, Visitas, Orden, IdEstado, Votos1, Votos2, Votos3, Votos4, Votos5, VigenciaDesde, VigenciaHasta, Comentarios, IdIdioma, Prioridad, EsNuevo from articulos where Id = $Id";
+	$sql = "select Titulo, IdClase, IdSitio, Resumen, Copete, Contenido, EsHTML, Archivo, Imagen, TextoImagen, Enlace, Visitas, Orden, IdEstado, Votos1, Votos2, Votos3, Votos4, Votos5, VigenciaDesde, VigenciaHasta, Comentarios, IdIdioma, Prioridad, EsNuevo from articulos where Id = '$Id'";
 	$rs = mysql_query($sql);
 	list($Titulo, $IdClase, $IdSitio, $Resumen, $Copete, $Contenido, $EsHTML, $Archivo, $Imagen, $TextoImagen, $Enlace, $Visitas, $Orden, $IdEstado, $Votos1, $Votos2, $Votos3, $Votos4, $Votos5, $VigenciaDesde, $VigenciaHasta, $Comentarios, $IdIdioma, $Prioridad, $EsNuevo) = mysql_fetch_row($rs);
 	mysql_free_result($rs);
@@ -138,7 +141,7 @@ function MuestraRegistro($reg) {
 	FilaFinal();
 }
 
-	$rs=mysql_query("select * from categoriasarticulos where IdArticulo=$Id order by Id");
+	$rs=mysql_query("select * from categoriasarticulos where IdArticulo='$Id' order by Id");
 	if (mysql_num_rows($rs)) {
 ?>
 

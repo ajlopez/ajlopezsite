@@ -1,6 +1,7 @@
 <?php
     include_once('Settings.inc.php');
     
+	include_once('GetParameters.inc.php');
 	include_once('Campos.inc.php');
 	include_once('Conexion.inc.php');
 	include_once('Errores.inc.php');
@@ -12,7 +13,8 @@
 	AdministradorControla('');
 
 	if (isset($Id)) {
-		$sql = "select * from items where Id = $Id"; 
+        $Id += 0;
+		$sql = "select * from items where Id = '$Id'"; 
 		$rs = mysql_query($sql);
 		$reg = mysql_fetch_object($rs);
 		$Descripcion = $reg->Descripcion;

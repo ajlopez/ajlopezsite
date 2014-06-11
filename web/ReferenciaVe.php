@@ -16,8 +16,10 @@
 
 	if (!isset($Id))
 		PaginaSalir();
+        
+    $Id += 0;
 
-	$rsReferencia = mysql_query("select Titulo, IdItem, IdArticulo, IdCategoria, IdPagina, CodigoPagina, Enlace from referencias where Id = $Id");
+	$rsReferencia = mysql_query("select Titulo, IdItem, IdArticulo, IdCategoria, IdPagina, CodigoPagina, Enlace from referencias where Id = '$Id'");
 	list($Titulo, $IdItem, $IdArticulo, $IdCategoria, $IdPagina, $CodigoPagina, $Enlace)
 		= mysql_fetch_row($rsReferencia);
 
@@ -54,7 +56,7 @@
 
 <?
 	if (UsuarioIdentificado()) {
-		$rsVisitas = mysql_query("select * from eventos where Tipo = 'RE' and IdUsuario = " . UsuarioId() . " and IdParametro = $Id and FechaHora >= (now() - Interval 1 day)");
+		$rsVisitas = mysql_query("select * from eventos where Tipo = 'RE' and IdUsuario = '" . UsuarioId() . "' and IdParametro = '$Id' and FechaHora >= (now() - Interval 1 day)");
 		if (mysql_errno())
 			echo mysql_error();
 		if (!mysql_num_rows($rsVisitas))

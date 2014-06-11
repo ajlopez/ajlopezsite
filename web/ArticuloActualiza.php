@@ -1,6 +1,7 @@
 <?php
     include_once('Settings.inc.php');
 
+	include_once('GetParameters.inc.php');
 	include_once('Campos.inc.php');
 	include_once('Conexion.inc.php');
 	include_once('Errores.inc.php');
@@ -12,7 +13,8 @@
 	AdministradorControla('');
 
 	if (isset($Id)) {
-		$sql = "select Titulo, IdClase, IdIdioma, IdSitio, Resumen, Copete, Contenido, EsHTML, Archivo, Imagen, Enlace, VigenciaDesde, VigenciaHasta, Comentarios, Prioridad, EsNuevo from articulos where Id = $Id";
+        $Id += 0;
+		$sql = "select Titulo, IdClase, IdIdioma, IdSitio, Resumen, Copete, Contenido, EsHTML, Archivo, Imagen, Enlace, VigenciaDesde, VigenciaHasta, Comentarios, Prioridad, EsNuevo from articulos where Id = '$Id'";
 		$rs = mysql_query($sql);
 		list($Titulo, $IdClase, $IdIdioma, $IdSitio, $Resumen, $Copete, $Contenido, $EsHTML, $Archivo, $Imagen, $Enlace, $VigenciaDesde, $VigenciaHasta, $Comentarios, $Prioridad, $EsNuevo) = mysql_fetch_row($rs);
 		mysql_free_result($rs);

@@ -1,6 +1,7 @@
 <?php
     include_once('Settings.inc.php');
     
+	include_once('GetParameters.inc.php');
 	include_once('Campos.inc.php');
 	include_once('Conexion.inc.php');
 	include_once('Errores.inc.php');
@@ -20,9 +21,11 @@
 
 	if (!isset($Id))
 		PaginaSalir();
+        
+    $Id += 0;
 
 	$sql = "select Descripcion, IdClase, IdSitio, IdIdioma, Estado, Detalle, Url, Visitas, Votos1, Votos2, Votos3, Votos4, Votos5, Comentarios, Prioridad, EsNuevo
-		 from items where Id = $Id";		 
+		 from items where Id = '$Id'";		 
 	$res = mysql_query($sql);
 	list($Descripcion, $IdClase, $IdSitio, $IdIdioma, $Estado, $Detalle, $Url, $Visitas, $Votos1, $Votos2, $Votos3, $Votos4, $Votos5, $Comentarios, $Prioridad, $EsNuevo)
 		= mysql_fetch_row($res);
