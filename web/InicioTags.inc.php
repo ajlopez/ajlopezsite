@@ -37,24 +37,6 @@ urchinTracker();
 
 <body bgcolor=#ffffff leftmargin=0 topmargin=0 marginwidth=0 marginheight=0>
 
-<!-- Meebo bar -->
-
-<script type="text/javascript">
-if (typeof Meebo == 'undefined') {
-Meebo=function(){(Meebo._=Meebo._||[]).push(arguments)};
-(function(q){
-	var args = arguments;
-	if (!document.body) { return setTimeout(function(){ args.callee.apply(this, args) }, 100); }
-	var d=document, b=d.body, m=b.insertBefore(d.createElement('div'), b.firstChild); s=d.createElement('script');
-	m.id='meebo'; m.style.display='none'; m.innerHTML='<iframe id="meebo-iframe"></iframe>';
-	s.src='http'+(q.https?'s':'')+'://'+(q.stage?'stage-':'')+'cim.meebo.com/cim/cim.php?network='+q.network;
-	b.insertBefore(s, b.firstChild);
-
-})({network:'ajlopez_to43fa'});
-Meebo('makeEverythingSharable');
-}
-</script>
-
 <table width="100%" class="Tope" cellspacing=0 cellpadding=0 border=0>
 <tr height=60>
 <td class="TituloSitio">
@@ -253,15 +235,6 @@ else {
 		MenuFinal();
 	}
 
-/*
-	MenuInicio('Cursos');
-	MenuOpcion('Todos','CursosMuestra.php');
-	MenuOpcion('Inform&aacute;tica','CursosMuestra.php?IdCategoria=1');
-	MenuOpcion('Internet','CursosMuestra.php?IdCategoria=2');
-	MenuOpcion('Gratuitos','CursosGratuitos.php');
-	MenuFinal();
-*/
-
 	MenuInicio('Temas');
 	MenuOpcion('Todos','Temas.php');
 	MenuOpcion('Programaci&oacute;n','programacion');
@@ -277,25 +250,12 @@ else {
 	MenuOpcion('Emprender','emprender');
 	MenuOpcion('Matem&aacute;ticas','matematicas');
 	MenuFinal();
-
-/*
-	MenuInicio('Oportunidades');
-	MenuOpcion('Gane Puntos','Puntos.php');
-	MenuOpcion('Afiliados', 'Afiliados.php');
-	MenuOpcion('Webmasters', 'Webmasters.php');
-	MenuOpcion('Publicidad', 'Publicidad.php');
-	MenuFinal();
-*/
 }
 ?>
 
 
 
 </center>
-
-      <!-- Del.icio.us Tags -->
-
-<script type="text/javascript" src="http://del.icio.us/feeds/js/tags/ajlopez?icon;size=10-18;color=87ceeb-000080;title=Mis%20tags%20en%20del.icio.us;name;showadd"></script>
 
 
 </td>
